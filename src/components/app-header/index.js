@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { memo,useState } from 'react';
+import { NavLink,useHistory,withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { headerLinks } from '@/common/local-data';
 import { Input } from 'antd';
@@ -9,9 +10,12 @@ import {
   HeaderLeft,
   HeaderRight
 } from './style';
+import { getSearchContentAction } from '../../pages/search/store/actionCreators';
 
-export default memo(function ZXYAppHeader() {
-
+const ZXYAppHeader = (props) => {
+  // console.log(props);
+  const [inputValue, setinputValue] = useState()
+  
   //业务代码
   const showSelectItem = (item,index) => {
     if(index<3){
@@ -24,7 +28,23 @@ export default memo(function ZXYAppHeader() {
     }else{
       return <a href={item.link}>{item.title}</a>
     }
-    
+  }
+
+  const onChange = (e) => {
+    console.log(e.target.value);
+    setinputValue(e.target.value);
+  }
+
+  const dispatch = useDispatch();
+  let history = useHistory();
+  const handleKeyUp = (e) => {
+    if(e.keyCode === 13){
+      history.push({
+        pathname:'/search',
+        state:{ keywords:inputValue }
+      });
+      dispatch(getSearchContentAction(inputValue));
+    }
   }
 
   //返回的JSX
@@ -46,7 +66,11 @@ export default memo(function ZXYAppHeader() {
           </div>
         </HeaderLeft>
         <HeaderRight>
-          <Input className='search' placeholder='音乐/视频/电台/用户' prefix={<SearchOutlined/>}/>
+          <Input onChange={onChange} 
+                 className='search' 
+                 placeholder='音乐/视频/电台/用户' 
+                 prefix={<SearchOutlined/>}
+                 onKeyUp={e => handleKeyUp(e)} />
           <div className='center'>创作者中心</div>
           <div>登录</div>
         </HeaderRight>
@@ -54,4 +78,6 @@ export default memo(function ZXYAppHeader() {
       <div className='divider'></div>
     </HeaderWrapper>
   );
-});
+};
+
+export default withRouter(memo(ZXYAppHeader));

@@ -19,7 +19,7 @@ export const PlayerBar = styled.div`
         color: #fff;
         display: flex;
         align-items: center;
-        padding: 0 7px 0 8px;
+        padding: 0 5px 0 5px;
         background-position: 0 -387px;
 
         i {

@@ -64,6 +64,10 @@ body, textarea, select, input, button {
   margin: 0 auto;
 }
 
+.sprite {
+  background: url(../img/sprite.png) no-repeat 0 9999px;
+}
+
 .sprite_01 {
   background: url(../img/sprite_01.png) no-repeat 0 9999px;
 }
@@ -100,6 +104,22 @@ body, textarea, select, input, button {
   background: url(../img/sprite_table.png) no-repeat 0 9999px;
 }
 
+.sprite_playlist_bg {
+  background: url(../img/playlist_bg.png) no-repeat 0 9999px;
+}
+
+.sprite_playlist {
+  background: url(../img/playlist.png) no-repeat 0 9999px;
+}
+
+.sprite_mine {
+  background: url(../img/mine_sprite.png) no-repeat 0 9999px;
+}
+
+.sprite_focus {
+  background: url(../img/focus_sprite.jpg) no-repeat 0 9999px;
+}
+
 .image_cover {
   position: absolute;
   left: 0;
@@ -110,6 +130,12 @@ body, textarea, select, input, button {
   background: url(../img/sprite_cover.png) no-repeat -145px -57px;
 }
 
+.sprite_tab {
+  background: url(../img/tab.png) no-repeat 0 9999px;
+}
+.sprite {
+  background: url(../img/sprite.png) no-repeat 0 9999px;
+}
 .sprite_player {
   background: url(../img/playbar_sprite.png) no-repeat 0 9999px;
 }

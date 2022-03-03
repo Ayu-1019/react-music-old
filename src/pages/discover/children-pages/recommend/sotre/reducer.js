@@ -11,6 +11,8 @@ const defaultState = Map({
   newAlbums:[],
   // 飙升榜
   upRanking:[],
+  // 热歌榜
+  hotRanking:[],
   // 新歌榜
   newRanking:[],
   // 原创榜
@@ -27,6 +29,8 @@ function reducer(state = defaultState,action) {
       return state.set("newAlbums",action.newAlbums);
     case actionTypes.CHANGE_UP_RANKING:
       return state.set("upRanking",action.upRanking);
+    case actionTypes.CHANGE_HOT_RANKING:
+      return state.set("hotRanking",action.hotRanking);
     case actionTypes.CHANGE_NEW_RANKING:
       return state.set("newRanking",action.newRanking);
     case actionTypes.CHANGE_ORIGIN_RANKING:

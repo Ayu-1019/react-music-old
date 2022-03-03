@@ -15,7 +15,7 @@ export default memo(function App() {
     <Provider store={store}>
       <HashRouter>
         <ZXYAppHeader/>
-        {renderRoutes(routes)}
+          {renderRoutes(routes)}
         <ZXYAppFooter/>
         <ZXYAppPlayerBar/>
       </HashRouter>

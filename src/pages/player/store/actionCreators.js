@@ -32,7 +32,6 @@ const changeSimilarSongsAction = (similarSongs) => ({
 export const getSimilarSongsAction = (id) => {
   return dispatch => {
     getSimilarSong(id).then(res => {
-      console.log(res.songs);
       dispatch(changeSimilarSongsAction(res.songs));
     })
   }

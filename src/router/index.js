@@ -24,7 +24,16 @@ import ZXYAlbum from "../pages/discover/children-pages/album";
 import ZXYPlayer from "../pages/player";
 
 import ZXYMine from "@/pages/mine";
-import ZXYFriend from "@/pages/friend";
+import ZXYFocus from "@/pages/focus";
+import ZXYSearch from '../pages/search';
+import ZXYSearchSongs from '../pages/search/child-cpn/search-songs';
+import ZXYSearchSinger from '../pages/search/child-cpn/search-singer';
+import ZXYSearchAblum from '../pages/search/child-cpn/search-album';
+import ZXYSearchLyric from '../pages/search/child-cpn/search-lyric';
+import ZXYSearchPlaylist from '../pages/search/child-cpn/search-playlist';
+import ZXYSearchSounddj from '../pages/search/child-cpn/search-sounddj';
+import ZXYSearchUser from '../pages/search/child-cpn/search-user';
+import ZXYSearchVideo from '../pages/search/child-cpn/search-video';
 
 const routes = [
   {
@@ -80,8 +89,54 @@ const routes = [
     component:ZXYMine
   },
   {
-    path:"/friend",
-    component:ZXYFriend
+    path:"/focus",
+    component:ZXYFocus
+  },
+  {
+    path:"/search",
+    component:ZXYSearch,
+    routes:[
+      {
+        path:"/search",
+        exact: true,
+        render: () => (
+          <Redirect to="/search/songs"/>
+        )
+      },
+      {
+        path:"/search/songs",
+        component:ZXYSearchSongs
+      },
+      {
+        path:"/search/singer",
+        component:ZXYSearchSinger
+      },
+      {
+        path:"/search/album",
+        component:ZXYSearchAblum
+      },
+      {
+        path:"/search/lyric",
+        component:ZXYSearchLyric
+      },
+      {
+        path:"/search/playlist",
+        component:ZXYSearchPlaylist
+      },
+      {
+        path:"/search/sounddj",
+        component:ZXYSearchSounddj
+      },
+      {
+        path:"/search/video",
+        component:ZXYSearchVideo
+      },
+      {
+        path:"/search/user",
+        component:ZXYSearchUser
+      },
+
+    ]
   },
   
 ];

@@ -4,8 +4,9 @@ import { PlayerBar } from './style';
 
 const ZXYPlayerSongBar = memo((props) => {
 
-  const { favorTitle, shareTitle, downloadTitle, commentTitle } = props;
-
+  const { favorTitle, shareTitle, commentTitle, subscribed, shareCount, commentCount } = props;
+  const downloadTitle = "下载";
+  
   return (
     <PlayerBar>
       <span className="play">
@@ -18,16 +19,16 @@ const ZXYPlayerSongBar = memo((props) => {
         <a href="/abc" className="add-icon sprite_button">+</a>
       </span>
       <a href="/abc" className="item sprite_button">
-        <i className="icon favor-icon sprite_button">{favorTitle}</i>
+        <i className="icon favor-icon sprite_button">{favorTitle || subscribed}</i>
       </a>
       <a href="/abc" className="item sprite_button">
-        <i className="icon share-icon sprite_button">{shareTitle}</i>
+        <i className="icon share-icon sprite_button">{shareTitle || shareCount}</i>
       </a>
       <a href="/abc" className="item sprite_button">
         <i className="icon download-icon sprite_button">{downloadTitle}</i>
       </a>
       <a href="/abc" className="item sprite_button">
-        <i className="icon comment-icon sprite_button">{commentTitle}</i>
+        <i className="icon comment-icon sprite_button">{commentTitle || commentCount}</i>
       </a>
     </PlayerBar>
   )

@@ -27,6 +27,11 @@ const changeUpRanking = (res) => ({
   upRanking:res.playlist
 })
 
+const changeHotRanking = (res) => ({
+  type:actionTypes.CHANGE_HOT_RANKING,
+  hotRanking:res.playlist
+})
+
 const changeNewRanking = (res) => ({
   type:actionTypes.CHANGE_NEW_RANKING,
   newRanking:res.playlist
@@ -66,13 +71,16 @@ export const getTopListAction = (idx) => {
     getTopList(idx).then(res => {
       switch(idx) {
         case 0:
-          dispatch(changeUpRanking(res));
-          break;
-        case 2:
           dispatch(changeNewRanking(res));
           break;
-        case 3:
+        case 1:
+          dispatch(changeHotRanking(res));
+          break;
+        case 2:
           dispatch(changeOriginRanking(res));
+          break;
+        case 3:
+          dispatch(changeUpRanking(res));
           break;
         default:
       }

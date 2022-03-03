@@ -15,11 +15,35 @@ export const PlayerLeft = styled.div`
   .player-left-content{
     display:flex;
   }
+  .commit-bug{
+    margin-top:48px;
+    float:right;
+    a{
+      color:#999;
+      font-size:12px;
+    }
+  }
 `
 
 export const PlayerRight = styled.div`
   width:270px;
   padding: 0px 0px 40px 62px;
+  .userwiki{
+    margin-top:40px;
+    .title{
+      color:#333;
+      font-weight:700;
+      padding-bottom:5px;
+      border-bottom:1px solid #ccc;
+    }
+    .link{
+      margin-top:20px;
+      span:hover{
+        cursor: pointer;
+        text-decoration:underline;
+      }
+    }
+  }
 `
 export const PlayerImage = styled.div`
   width:210px;
@@ -92,5 +116,21 @@ export const PlayerInfo = styled.div`
       }
     }
   }
+  .btn-speard{
+    position: relative;
+    color: #0c73c2;
+    background-color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    padding:0;
 
+    i{
+      position: absolute;
+      width: 11px;
+      height: 8px;
+      left: 26px;
+      top: 5px;
+      background-position: ${props => props.isSpread ? "-45px": "-65px"} -520px;
+    }
+  }
 `

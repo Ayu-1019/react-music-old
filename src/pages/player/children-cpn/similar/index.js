@@ -12,7 +12,6 @@ const ZXYSimilar = memo((props) => {
     similarSongs:state.getIn(["player","similarSongs"]),
   }),shallowEqual);
   const dispatch = useDispatch();
-  console.log(similarSongs);
 
   useEffect(() => {
     dispatch(getSimilarSongsAction(id))

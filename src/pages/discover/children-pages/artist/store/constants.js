@@ -1,0 +1,1 @@
+export const CHANGE_HOT_SINGER = "artist/CHANGE_HOT_SINGER";

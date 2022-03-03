@@ -155,8 +155,14 @@ export const Operator = styled.div`
     }
 
     .playlist {
+      position:absolute;
       width: 59px;
       background-position: -42px -68px;
+      span{
+        margin-left:10px;
+        z-index:2;
+        color: #666;
+      }
     }
   }
 `

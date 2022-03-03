@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo,useState } from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { getSizeImage } from '@/utils/data-format';
 
-import ZXYLyric from './children-cpn/lyric'
+import ZXYLyric from './children-cpn/lyric';
+import ZXYDownload from '@/components/download'
 import ZXYPlayerSongBar from '@/components/player-song-bar';
 import ZXYCommentList from '@/components/comment-list';
 import ZXYSimilar from './children-cpn/similar';
@@ -17,6 +18,8 @@ import {
 } from './style';
 
 export default memo(function ZXYPlayer() {
+
+  const [isSpread, setisSpread] = useState(false);
 
   const { currentSong } = useSelector(state => ({
     currentSong: state.getIn(["player","currentSong"]),
@@ -36,7 +39,7 @@ export default memo(function ZXYPlayer() {
                 <a href="todo">生成外链播放器</a>
               </div>
             </PlayerImage>
-            <PlayerInfo>
+            <PlayerInfo isSpread={isSpread}>
               <div className='header'>
                 <i className='sprite_icon2'></i>
                 <div className='header-title'>
@@ -67,15 +70,36 @@ export default memo(function ZXYPlayer() {
                                 shareTitle="分享"
                                 downloadTitle="下载"
                                 commentTitle="(167366)" />
-              <ZXYLyric />
+              
+              <ZXYLyric isSpread={isSpread} />
+              <button className='btn-speard' onClick={e => setisSpread(!isSpread)}>
+                { isSpread ? "收起": "展开" }
+                <i className='sprite_icon2'></i>
+              </button>
 
             </PlayerInfo>
           </div>
+          <div className='commit-bug'><a href="/todo">报错</a></div>
+          
           <ZXYCommentList id={currentSong.id} />
         </PlayerLeft>
 
         <PlayerRight>
           <ZXYSimilar id={currentSong.id} />
+          <ZXYDownload/>
+          <div className='userwiki'>
+            <div className='title'>用户wiki</div>
+            <div className='link'>
+              <div className='link-one'>
+                <img src="https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/13138582886/9567/5afa/307c/a6ba8934ef3b36208786e4445e054e04.png" alt="" />
+                <span>补充或修改歌曲资料</span>
+              </div>
+              <div className='link-two'>
+                <img src="https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/13138667740/2d69/e968/aac8/79d601b88b5bde7f850f090db9a3f820.png" alt="" />
+                <span>补充或修改歌曲资料</span>
+              </div>
+            </div>
+          </div>
         </PlayerRight>
 
       </div>

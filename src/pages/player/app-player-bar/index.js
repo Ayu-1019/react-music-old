@@ -1,6 +1,7 @@
 import React, { memo,useEffect, useRef,useState,useCallback } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import { 
   getSongDetailAction,
@@ -14,6 +15,7 @@ import {
   getPlaySong,
 } from '@/utils/data-format';
 
+import ZXYPlayerList from '../app-player-list';
 import { Slider, message } from 'antd';
 import { 
   PlaybarWrapper,
@@ -29,18 +31,21 @@ export default memo(function ZXYAppPlayerrBar() {
   const [progress, setProgress] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isShow, setisShow] = useState(false)
 
   // reudx hook
   const { 
     currentSong,
     sequence,
     lyricList,
-    currentLyricIndex
+    currentLyricIndex,
+    playList
   } = useSelector(state => ({
     currentSong: state.getIn(["player","currentSong"]),
     sequence:state.getIn(["player","sequence"]),
     lyricList:state.getIn(["player","lyricList"]),
-    currentLyricIndex:state.getIn(["player","currentLyricIndex"])
+    currentLyricIndex:state.getIn(["player","currentLyricIndex"]),
+    playList:state.getIn(["player","playList"])
   }),shallowEqual);
   const dispatch = useDispatch();
 
@@ -143,54 +148,64 @@ export default memo(function ZXYAppPlayerrBar() {
   
 
   return (
-    <PlaybarWrapper className='sprite_player'>
-      <div className='content wrap-v2'>
-        <Control isPlaying={isPlaying}>
-          <button className='sprite_player prev' onClick={e => changeMusic(-1)}></button>
-          <button className='sprite_player play' onClick={e => playMusic()}></button>
-          <button className='sprite_player next' onClick={e => changeMusic(1)}></button>
-        </Control>
-        <PlayInfo>
-          <div className='image'>
-            <NavLink to="/discover/player">
-              <img src={getSizeImage(picUrl,35)} alt="" />
-            </NavLink>
-          </div>
-          <div className='info'>
-            <div className='song'>
-              <span className='song-name'>{currentSong.name}</span>
-              <a href='/#' className='singer-name'>{singerName}</a>
+    <>
+      <CSSTransition in={isShow}
+                     timeout={0}
+                     unmountOnExit={true}
+                     appear>
+        <ZXYPlayerList className='app-palylist' />
+      </CSSTransition>
+      <PlaybarWrapper className='sprite_player'>
+        <div className='content wrap-v2'>
+          <Control isPlaying={isPlaying}>
+            <button className='sprite_player prev' onClick={e => changeMusic(-1)}></button>
+            <button className='sprite_player play' onClick={e => playMusic()}></button>
+            <button className='sprite_player next' onClick={e => changeMusic(1)}></button>
+          </Control>
+          <PlayInfo>
+            <div className='image'>
+              <NavLink to="/discover/player">
+                <img src={getSizeImage(picUrl,35)} alt="" />
+              </NavLink>
             </div>
-            <div className='progress'>
-              <Slider defaultValue={30} 
-                      value={progress}
-                      onChange={sliderChange}
-                      onAfterChange={sliderAfterChange} 
-                      />
-              <div className='time'>
-                <span className='now-time'>{showCurrentTime}</span>
-                <span className='now-time'>/</span>
-                <span className='duration'>{showDuration}</span>
+            <div className='info'>
+              <div className='song'>
+                <span className='song-name'>{currentSong.name}</span>
+                <a href='/#' className='singer-name'>{singerName}</a>
+              </div>
+              <div className='progress'>
+                <Slider defaultValue={30} 
+                        value={progress}
+                        onChange={sliderChange}
+                        onAfterChange={sliderAfterChange} 
+                        />
+                <div className='time'>
+                  <span className='now-time'>{showCurrentTime}</span>
+                  <span className='now-time'>/</span>
+                  <span className='duration'>{showDuration}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </PlayInfo>
-        <Operator sequence={sequence}>
-          <div className="left">
-            <button className="sprite_player btn favor"></button>
-            <button className="sprite_player btn share"></button>
-          </div>
-          <div className="right sprite_player">
-            <button className="sprite_player btn volume"></button>
-            <button className="sprite_player btn loop" 
-                    onClick={e => changeSequence()}></button>
-            <button className="sprite_player btn playlist"></button>
-          </div>
-        </Operator>
-      </div>
-      <audio ref={audioRef}
-             onTimeUpdate={e => timeUpdate(e)}
-             onEnded={e => handleMusicEnded(e)}/>
-    </PlaybarWrapper>
+          </PlayInfo>
+          <Operator sequence={sequence}>
+            <div className="left">
+              <button className="sprite_player btn favor"></button>
+              <button className="sprite_player btn share"></button>
+            </div>
+            <div className="right sprite_player">
+              <button className="sprite_player btn volume"></button>
+              <button className="sprite_player btn loop" 
+                      onClick={e => changeSequence()}></button>
+              <button className="sprite_player btn playlist" onClick={e => setisShow(!isShow)}>
+                <span>{playList.length - 1}</span>
+              </button>
+            </div>
+          </Operator>
+        </div>
+        <audio ref={audioRef}
+              onTimeUpdate={e => timeUpdate(e)}
+              onEnded={e => handleMusicEnded(e)}/>
+      </PlaybarWrapper>
+    </>
   )
 });
