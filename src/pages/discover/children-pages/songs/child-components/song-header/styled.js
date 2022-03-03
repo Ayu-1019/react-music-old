@@ -16,8 +16,8 @@ export const SongHeaderWrapper = styled.div`
     margin-top:5px;
     padding:5px 0;
     margin-left:12px;
-    cursor: pointer;
     i{
+      cursor: pointer;
       color: #0c73c2 !important;
       padding: 0 10px 0 15px;
       em{
