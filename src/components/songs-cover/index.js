@@ -5,13 +5,13 @@ import { getCount,getSizeImage } from '@/utils/data-format';
 
 export default memo(function ZXYSongsCover(props) {
   
-  const { info } = props;
-  // console.log(info);
+  const { info,right } = props;
+  const picurl = info.picUrl || info.coverImgUrl
 
   return (
-    <SongsCoverWrapper>
+    <SongsCoverWrapper right={right}>
       <div className='cover-top'>
-        <img src={getSizeImage(info.picUrl,140)} alt="" />
+        <img src={getSizeImage(picurl,140)} alt="" />
         <div className="cover sprite_covor">
           <div className="info sprite_covor">
             <span>
@@ -26,8 +26,7 @@ export default memo(function ZXYSongsCover(props) {
         {info.name}
       </div>
       <div className="cover-source text-nowrap">
-        {/* by {info.copywriter || info.creator.nickname} */}
-        by {info.copywriter}
+        by {info.copywriter || info.creator.nickname}
       </div>
     </SongsCoverWrapper>
   )
