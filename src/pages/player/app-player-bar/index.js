@@ -53,7 +53,7 @@ export default memo(function ZXYAppPlayerrBar() {
   const audioRef = useRef();
 
   useEffect(() => {
-    dispatch(getSongDetailAction(1915290672));
+    dispatch(getSongDetailAction());
   },[dispatch]);
   
   useEffect(() => {
@@ -197,7 +197,7 @@ export default memo(function ZXYAppPlayerrBar() {
               <button className="sprite_player btn loop" 
                       onClick={e => changeSequence()}></button>
               <button className="sprite_player btn playlist" onClick={e => setisShow(!isShow)}>
-                <span>{playList.length - 1}</span>
+                <span>{playList.length}</span>
               </button>
             </div>
           </Operator>

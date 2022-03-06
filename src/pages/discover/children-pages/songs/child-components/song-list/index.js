@@ -10,9 +10,9 @@ const SongList = memo(() => {
   const { categorySongs } = useSelector(state => ({
     categorySongs: state.getIn(["songs", "categorySongs"])
   }),shallowEqual)
-  console.log(categorySongs);
-  const songList = categorySongs || [];
-  
+  const songList = Array.from(categorySongs) || [];
+  // console.log(songList);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSongList());
@@ -23,7 +23,7 @@ const SongList = memo(() => {
       <div className='list-wrap'>
       {
         songList.map(item => {
-          return <ZXYSongsCover info={item} right='30px'/>
+          return <ZXYSongsCover key={item.id} info={item} right='30px'/>
         })
       }
       </div>

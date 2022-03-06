@@ -8,10 +8,10 @@ import { getCategory } from './store/actionCreators'
 
 export default memo(function ZXYSongs() {
 
-  const { category } = useSelector(state => ({
+  useSelector(state => ({
     category:state.getIn(["songs", "category"])
   }),shallowEqual)
-  console.log(category);
+  // console.log(category);
 
   const dispatch = useDispatch();
   useEffect(() => {
