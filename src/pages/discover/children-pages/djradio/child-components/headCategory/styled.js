@@ -59,11 +59,25 @@ export const CategoryContent = styled.div`
 
   .carousel-two{
     display: flex !important;;
-    .item1{
-      width: 70px;
-      height: 70px;
+    .item1, .item2{
+      margin: 0 10px;
+      cursor: pointer;
+      &:hover{
+        background-color: rgb(246,247,247);
+      }
+      div{
+        margin:0 auto;
+        padding: 0 20px 0 20px;
+        width: 48px;
+        height: 48px;
+        background: url("https://music.163.com/style/web2/img/index_radio/radio_faq.png") no-repeat 0 9999px;
+        background-position:0 0;
+      }
+      span{
+        font-size:12px;
+        color:#888;
+      }
     }
-    .item2{}
   }
 
   .dots {

@@ -3,6 +3,7 @@ import { useDispatch,useSelector,shallowEqual } from 'react-redux';
 
 import { SimilarWrapper } from './styled';
 import { getSimilarSongsAction } from '../../store/actionCreators';
+import { getSongDetailAction } from '@/pages/player/store';
 
 const ZXYSimilar = memo((props) => {
 
@@ -16,6 +17,10 @@ const ZXYSimilar = memo((props) => {
   useEffect(() => {
     dispatch(getSimilarSongsAction(id))
   },[dispatch,id])
+
+  const playMusic = (item) => {
+    dispatch(getSongDetailAction(item.id));
+  }
 
   return (
     <SimilarWrapper>
@@ -32,8 +37,8 @@ const ZXYSimilar = memo((props) => {
                   <div className='singer'>{item.artists[0].name}</div>
                 </div>
                 <div className='btn'>
-                  <a href='/todo' className='btn-player sprite_icon3'> </a>
-                  <a href='/todo' className='btn-add sprite_icon3'> </a>
+                  <span onClick={e => playMusic(item)} className='btn-player sprite_icon3'> </span>
+                  <span className='btn-add sprite_icon3'> </span>
                 </div>
               </div>
             )

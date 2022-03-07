@@ -34,6 +34,7 @@ export const SimilarWrapper = styled.div`
           width: 10px;
           height: 11px;
           opacity: 0.9;
+          cursor: pointer;
         }
         .btn-add{
           background-position: -87px -454px;

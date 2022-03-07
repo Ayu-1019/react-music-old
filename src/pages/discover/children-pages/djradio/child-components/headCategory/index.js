@@ -53,10 +53,12 @@ const ZXYHeadCategory = memo(() => {
           </div>
           <div className='carousel-two'>
             <div className='item1'>
-              常见问题
+              <div></div>
+              <span>常见问题</span>
             </div>
-            <div className='item2'>
-              我要做主播
+            <div className='item2'>   
+              <div></div>    
+              <span>我要做主播</span>
             </div>
           </div>
         </Carousel>

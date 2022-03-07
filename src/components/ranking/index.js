@@ -1,13 +1,20 @@
 import React, { memo } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { formatDate, formatMonthDay, getSizeImage } from '../../utils/data-format';
+import { getSongDetailAction } from '@/pages/player/store';
 
 import { RankingContentWrapper } from './style';
-import ZXYPlayerSongBar from '../player-song-bar'
+import ZXYPlayerSongBar from '../player-song-bar';
 
 const ZXYRanking = memo((props) => {
 
   const { playList } = props;
-  const list = playList.tracks? playList.tracks: []    
+  const list = playList.tracks? playList.tracks: [];
+  const dispatch = useDispatch();
+  const playMusic = (item) => { 
+    dispatch(getSongDetailAction(item.id));
+  }
 
   return (
     <RankingContentWrapper>
@@ -51,7 +58,7 @@ const ZXYRanking = memo((props) => {
                       </div>
                       <div className='item-headline'>
                         <img src={getSizeImage(item.al.picUrl,50)} alt="" />
-                        <span className='play sprite_table'></span>
+                        <span className='play sprite_table' onClick={e => playMusic(item)}></span>
                         <span className='song-name'>{item.name}</span>
                         <span className='song-album'>{}</span>
                       </div>
@@ -69,7 +76,7 @@ const ZXYRanking = memo((props) => {
                         <span>{index + 4}</span>
                       </div>
                       <div className='item-headline2'>
-                        <span className='play2 sprite_table'></span>
+                        <span className='play2 sprite_table' onClick={e => playMusic(item)}></span>
                         <span className='song-name2'>{item.name}</span>
                         <span className='song-album2'>{}</span>
                       </div>
