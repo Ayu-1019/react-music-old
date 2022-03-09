@@ -4,7 +4,7 @@ export const CategoryWrapper = styled.div`
   padding:30px 10px 0 10px;
   border-right: 1px solid #d3d3d3;
   background-color: rgb(249,249,249);
-  width:18%;
+  width:20%;
   div:nth-child(6){
     border:none;
   }
@@ -31,7 +31,7 @@ export const CategoryItem = styled.div`
     display: inline-block;
     width: 160px;
     padding-left: 27px;
-    background: url(${require("@/assets/img/singer_sprite.png")}) no-repeat 0 -30px;
+    background-position: 0 -30px;
     cursor: pointer;
     &:hover {
       text-decoration: underline;
@@ -39,8 +39,11 @@ export const CategoryItem = styled.div`
   }
   &.active {
     span {
-      color: red;
+      color: #c20c0c;
       background-position: 0 0;
+      &:hover{
+        text-decoration:none;
+      }
     }
   }
 `

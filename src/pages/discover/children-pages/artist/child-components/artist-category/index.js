@@ -35,7 +35,7 @@ const ArtistCategory = memo(() => {
             return (
               <CategoryItem className={classNames({"active": isSelect})}
                    key={item.name}>
-                <span onClick={e => selectArtist(area, item)}>{item.name}</span>
+                <span className='sprite_singer' onClick={e => selectArtist(area, item)}>{item.name}</span>
               </CategoryItem>
             )
           })
