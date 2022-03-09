@@ -21,25 +21,26 @@ const ArtistCategory = memo(() => {
   const dispatch = useDispatch();
 
   const selectArtist = (area, type) => {
+    console.log(area,type);
     dispatch(changeCurrentAreaAction(area));
     dispatch(changeCurrentTypeAction(type));
   }
 
   const renderArtist = (artists,area) => {
     return (
-      <CategoryItem>
+      <div>
         {
           artists.map(item => {
             const isSelect = currentArea === area && currentType.type === item.type;
             return (
-              <div className={classNames('category-item sprite_singer',{"active": isSelect})}
+              <CategoryItem className={classNames({"active": isSelect})}
                    key={item.name}>
-                <span onClick={e => selectArtist(area, item.type)}>{item.name}</span>
-              </div>
+                <span onClick={e => selectArtist(area, item)}>{item.name}</span>
+              </CategoryItem>
             )
           })
         }
-      </CategoryItem>
+      </div>
     )
   }
 

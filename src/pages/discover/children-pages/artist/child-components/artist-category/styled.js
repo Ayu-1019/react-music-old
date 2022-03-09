@@ -21,27 +21,26 @@ export const CategoryWrapper = styled.div`
   }
 `
 export const CategoryItem = styled.div`
-  .category-item{
-
-    font-size:12px;
-    color:#333;
-    padding-left:25px;
-    background-position: 0 -30px;
+  font-size:12px;
+  color:#333;
+  background-position: 0 -30px;
+  width: 160px;
+  height: 29px;
+  line-height: 29px;
+  span {
+    display: inline-block;
     width: 160px;
-    height: 29px;
-    line-height: 29px;
-    span{
-      cursor: pointer;
-    }
-    &.active {
-      span {
-        color: red;
-        background-position: 0 0;
-      }
-    }
-    &:hover{
-      text-decoration:underline;
+    padding-left: 27px;
+    background: url(${require("@/assets/img/singer_sprite.png")}) no-repeat 0 -30px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
   }
-  
+  &.active {
+    span {
+      color: red;
+      background-position: 0 0;
+    }
+  }
 `

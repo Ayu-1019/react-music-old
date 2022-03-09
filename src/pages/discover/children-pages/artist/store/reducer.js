@@ -5,7 +5,7 @@ import * as actionTypes from './constants';
 const defaultState = Map({
   // 热门歌手
   hotSinger:[],
-  currentArea:7,
+  currentArea:-1,
   currentType:{
     name:'推荐歌手',
     type:1
