@@ -8,6 +8,7 @@ import { reducer as djradioReducer } from '../pages/discover/children-pages/djra
 import { reducer as searchReducer } from '../pages/search/store';
 import { reducer as rankingReducer } from '../pages/discover/children-pages/ranking/store';
 import { reducer as songsReducer } from '../pages/discover/children-pages/songs/store';
+import { reducer as albumReducer } from '../pages/discover/children-pages/album/store';
 
 const cReducer = combineReducers({
   recommend:recommendReducer,
@@ -17,7 +18,8 @@ const cReducer = combineReducers({
   djradio:djradioReducer,
   search:searchReducer,
   ranking:rankingReducer,
-  songs:songsReducer
+  songs:songsReducer,
+  albums:albumReducer
 });
 
 export default cReducer;
