@@ -27,10 +27,10 @@ export const AlbumWrapper = styled.div`
 
     .album {
       width: 640px;
-      height: 150px;
+      height: 155px;
 
       .ant-carousel .slick-slide {
-        height: 150px;
+        height: 155px;
         overflow: hidden;
       }
 

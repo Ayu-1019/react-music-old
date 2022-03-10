@@ -23,6 +23,7 @@ export const AlbumWrapper = styled.div`
       bottom: 0;
       background-position: 0 ${props => props.bgp};
       text-indent: -9999px;
+      cursor: pointer;
     }
   }
 
@@ -30,10 +31,12 @@ export const AlbumWrapper = styled.div`
     font-size: 12px;
     width: ${props => props.size};
     .name {
+      padding-top:5px;
       color: #000;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      font-size:${props => props.fs};
     }
 
     .artist {

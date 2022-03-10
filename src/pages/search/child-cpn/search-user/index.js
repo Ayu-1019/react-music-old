@@ -4,18 +4,18 @@ import { useDispatch, useSelector,shallowEqual } from 'react-redux';
 import { getSearchSongsAction } from '../../store/actionCreators'
 
 const ZXYSearchUser = memo((props) => {
-  console.log(props);
-  const keywords = props.location.keywords;
 
-  // const { searchSongs } = useSelector(state => ({
-  //   currentSong: state.getIn(["search","searchSongs"]),
-  // }),shallowEqual);
-  // console.log(searchSongs);
+  const { searchContent,searchVideos } = useSelector(state => ({
+    searchContent: state.getIn(["search","searchContent"]),
+    searchVideos: state.getIn(["search","searchVideos"])
+  }),shallowEqual);
+  console.log(searchVideos);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    // getSearchSongsAction(keywords);
-  },[dispatch,keywords])
+    // dispatch(getSearchVideoAction(searchContent))
+  },[dispatch,searchContent])
+
   return (
     <div>
       ZXYSearchUser

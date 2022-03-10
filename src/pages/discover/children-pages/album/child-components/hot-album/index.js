@@ -2,14 +2,14 @@ import React, { memo, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { getHotAlbumsAction } from '../../store/actionCreators';
 
-import { HotAlbumWrapper } from './styled'
+import { HotAlbumWrapper } from './styled';
+import ZXYAlbumCover from '@/components/album-cover';
 
 const HotAlbums = memo(() => {
 
   const { hotAlbums } = useSelector(state => ({
     hotAlbums:state.getIn(['albums','hotAlbums'])
   }),shallowEqual)
-  console.log(hotAlbums);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +19,15 @@ const HotAlbums = memo(() => {
   return (
     <HotAlbumWrapper>
       <div className='hot-album-title'>热门新碟</div>
-      <div className='hot-album-content'></div>
+      <div className='hot-album-content'>
+        {
+          hotAlbums.slice(0,10).map(item => {
+            return (
+              <ZXYAlbumCover key={item.id} info={item} fs='14px'/>
+            )
+          })
+        }
+      </div>
     </HotAlbumWrapper>
   )
 })

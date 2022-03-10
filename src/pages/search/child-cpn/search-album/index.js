@@ -1,26 +1,31 @@
 import React, { memo, useEffect } from 'react';
 import { useDispatch, useSelector,shallowEqual } from 'react-redux';
 
-import { getSearchSongsAction } from '../../store/actionCreators'
+import { getSearchAlbumAction } from '../../store/actionCreators';
+
+import ZXYAlbumCover from '@/components/album-cover';
+import { AlbumsWrap } from './styled'
 
 const ZXYSearchAblum = memo((props) => {
-  console.log(props);
-  const keywords = props.location.keywords;
 
-  // const { searchSongs } = useSelector(state => ({
-  //   currentSong: state.getIn(["search","searchSongs"]),
-  // }),shallowEqual);
-  // console.log(searchSongs);
+  const { searchAlbums, searchContent } = useSelector(state => ({
+    searchAlbums: state.getIn(["search","searchAlbums"]),
+    searchContent: state.getIn(["search","searchContent"])
+  }),shallowEqual);
+  console.log(searchAlbums);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    // console.log(keywords,2);
-    // getSearchSongsAction(keywords);
-  },[dispatch,keywords])
+    dispatch(getSearchAlbumAction(searchContent))
+  },[dispatch,searchContent])
   return (
-    <div>
-      ZXYSearchAblum
-    </div>
+    <AlbumsWrap>
+      {
+        searchAlbums.slice(0,20).map(item => {
+          return <ZXYAlbumCover key={item.id} info={item} fs="14px"/>
+        })
+      }
+    </AlbumsWrap>
   )
 })
 

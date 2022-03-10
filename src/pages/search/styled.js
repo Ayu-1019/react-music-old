@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-border: 1px solid #d3d3d3;
+  border: 1px solid #d3d3d3;
   padding: 40px;
   background-color: #fff;
+  min-height:700px;
   .search-wrap{
     width: 420px;
     height: 40px;
@@ -19,11 +20,12 @@ border: 1px solid #d3d3d3;
       background: #fff;
       border: none;
     }
-    a{
+    span{
       float: right;
       width: 50px;
       height: 40px;
       text-indent: -9999px;
+      cursor: pointer;
     }
   }
 
@@ -61,6 +63,7 @@ border: 1px solid #d3d3d3;
         }
         .search-link{
           background-position: left -90px;
+          border-right:1px solid #ccc;
         }
       }
     }

@@ -12,7 +12,6 @@ const ZXYSearchSinger = memo(() => {
     searchSongs: state.getIn(["search","searchSongs"]),
     searchContent: state.getIn(["search","searchContent"])
   }),shallowEqual);
-  console.log(searchSongs);
 
   const dispatch = useDispatch();
   useEffect(() => {

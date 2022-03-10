@@ -8,6 +8,9 @@ export const HotAlbumWrapper = styled.div`
     border-bottom:2px solid #c20c0c;
   }
   .hot-album-content{
-    
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    padding-top:5px;
   }
 `

@@ -4,7 +4,7 @@ import * as actionTypes from './constants';
 
 const defaultState = Map({
   hotAlbums: [],
-  topAlbums: []
+  allAlbums: []
 })
 
 export default function reducer(state = defaultState,action){
@@ -12,7 +12,7 @@ export default function reducer(state = defaultState,action){
     case actionTypes.CHANGE_HOT_ALBUMS:
       return state.set("hotAlbums",action.hotAlbums)
     case actionTypes.CHANGE_ALL_ALBUMS:
-      return state.set("topAlbums",action.topAlbums)
+      return state.set("allAlbums",action.allAlbums)
     default:
       return state;
   }

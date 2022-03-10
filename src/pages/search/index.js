@@ -14,10 +14,8 @@ const ZXYSearch = memo((props) => {
   const { searchContent } = useSelector(state => ({
     searchContent: state.getIn(["search","searchContent"]),
   }),shallowEqual);
-  console.log(searchContent);
   
   const onChange = (e) => {
-    console.log(e.target.value);
     setinputValue(e.target.value);
   }
 
@@ -26,18 +24,21 @@ const ZXYSearch = memo((props) => {
   const handleKeyUp = (e) => {
     if(e.keyCode === 13){
       history.push({
-        pathname:'/search',
         state:{ keywords:inputValue }
       });
       dispatch(getSearchContentAction(inputValue));
     }
   }
 
+  const handleSearchButton = () => {
+    dispatch(getSearchContentAction(inputValue));
+  }
+
   return (
     <Wrapper className='wrap-v2'>
       <div className='search-wrap sprite'>
         <input onChange={onChange} onKeyUp={e => handleKeyUp(e)} className='search-input' type="text" />
-        <a href="/search">搜索</a>
+        <span onClick={e => handleSearchButton()}></span>
       </div>
       <div className='info'>
         搜索"{searchContent}"，找到{}首歌曲

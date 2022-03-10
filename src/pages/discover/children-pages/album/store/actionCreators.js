@@ -10,10 +10,23 @@ const changeHotAlbums = (res) => ({
   hotAlbums:res
 })
 
+const changeAllAlbums = (res) => ({
+  type:actionTypes.CHANGE_ALL_ALBUMS,
+  allAlbums:res
+})
+
 export const getHotAlbumsAction = () => {
   return dispatch => {
     getHotAlbums().then(res => {
       dispatch(changeHotAlbums(res.albums))
+    })
+  }
+}
+
+export const getAllAlbumsAction = () => {
+  return dispatch => {
+    getAllAlbums().then(res => {
+      dispatch(changeAllAlbums(res.albums))
     })
   }
 }

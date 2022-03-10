@@ -11,13 +11,13 @@ import {
 
 export default memo(function ZXYAlbumCover(props) {
 
-  const { info, size = 130, width = 153, bgp = '-845px' } = props;
+  const { info, size = 130, width = 153, bgp = '-845px', fs = '12px'}= props;
 
   return (
-    <AlbumWrapper size={size} width={width} bgp={bgp}>
+    <AlbumWrapper size={size} width={width} bgp={bgp} fs={fs}>
       <div className='album-image'>
         <img src={getSizeImage(info.picUrl,size)} alt="" />
-        <a href="/todo" className="cover image_cover">{info.name}</a>
+        <span className="cover image_cover">{info.name}</span>
       </div>
       <div className='album-info'>
         <div className="name text-nowrap">{info.name}</div>
