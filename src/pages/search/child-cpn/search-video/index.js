@@ -12,7 +12,6 @@ const ZXYSearchVideo = memo((props) => {
     searchContent: state.getIn(["search","searchContent"]),
     searchVideos: state.getIn(["search","searchVideos"])
   }),shallowEqual);
-  console.log(searchVideos);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -38,7 +37,9 @@ const ZXYSearchVideo = memo((props) => {
                 <span className={item.type? 'false': 'mv-icon'}></span>
                 {item.title}
               </div>
-              <div className='item-author'>{item.creator[0].userName}</div>
+              <div className='item-author'>
+                {item.creator[0].userName}
+              </div>
             </div>
           )
         })

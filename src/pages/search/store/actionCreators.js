@@ -100,8 +100,7 @@ export const getSearchLyricAction = (keywords) => {
 export const getSearchPlaylistAction = (keywords) => {
   return dispatch => {
     getSearchPlaylist(keywords).then(res => {
-      console.log(res);
-      dispatch(changeSearchPlaylist());
+      dispatch(changeSearchPlaylist(res.result.playlists));
     })
   }
 }
