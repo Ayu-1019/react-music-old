@@ -33,7 +33,7 @@ const ZXYSearchSinger = memo(() => {
                   <span className='sprite_table'> </span>
                 </div>
                 <div className='songs-name'>
-                  <a href="/todo">{item.name}</a>
+                  <span>{item.name}</span>
                 </div>
                 <div className='songs-operation'>
                   <div className='songs-operation-wrap'>

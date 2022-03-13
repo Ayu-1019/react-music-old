@@ -12,7 +12,6 @@ const ZXYSearchPlaylist = memo((props) => {
     searchContent: state.getIn(["search","searchContent"]),
     searchPlaylists: state.getIn(["search","searchPlaylists"])
   }),shallowEqual);
-  console.log(searchPlaylists);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,14 +23,18 @@ const ZXYSearchPlaylist = memo((props) => {
       {
         searchPlaylists.slice(0,20).map(item => {
           return (
-            <div className='playlist-item'>
+            <div className='playlist-item' key={item.id}>
               <div className='item-play-icon sprite_table'></div>
               <div className='item-image'>
                 <img src={getSizeImage(item.coverImgUrl,50)} alt="" />  
               </div>
               <div className='item-name'>
                 {item.name}
-                <div className='item-operate'>123</div>
+                <div className='item-operate'>
+                  <span className='add sprite_icon2'></span>
+                  <span className='favor sprite_table'></span>
+                  <span className='share sprite_table'></span>
+                </div>
               </div>
               <div className='item-number'>{item.trackCount}首</div>
               <div className='item-author'>by <span>{item.creator.nickname}</span></div>

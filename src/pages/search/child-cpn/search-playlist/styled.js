@@ -42,6 +42,32 @@ export const PlaylistWrap = styled.div`
       }
       .item-operate{
         display:none;
+        margin-right:20px;
+        .add{
+          display:inline-block;
+          width: 13px;
+          height: 13px;
+          overflow: hidden;
+          vertical-align: middle;
+          background-position: 0px -700px;
+        }
+        .favor{
+          display:inline-block;
+          width: 18px;
+          height: 16px;
+          overflow: hidden;
+          vertical-align: middle;
+          background-position: 0 -174px;
+          margin:0 3px;
+        }
+        .share{
+          display:inline-block;
+          width: 18px;
+          height: 16px;
+          overflow: hidden;
+          vertical-align: middle;
+          background-position: 0 -195px;
+        }
       }
     }
     .item-number{

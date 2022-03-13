@@ -12,7 +12,6 @@ const ZXYSearchAblum = memo((props) => {
     searchAlbums: state.getIn(["search","searchAlbums"]),
     searchContent: state.getIn(["search","searchContent"])
   }),shallowEqual);
-  console.log(searchAlbums);
 
   const dispatch = useDispatch();
   useEffect(() => {

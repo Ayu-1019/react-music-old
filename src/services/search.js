@@ -65,7 +65,7 @@ export function getSearchSounddj(keywords){
   return request({
     url:'/search',
     params:{
-      type:2000,
+      type:1009,
       keywords
     }
   })
@@ -75,8 +75,17 @@ export function getSearchUser(keywords){
   return request({
     url:'/search',
     params:{
-      type:1008,
+      type:1002,
       keywords
+    }
+  })
+}
+
+export function getSearchUserPlaylistCount(uid){
+  return request({
+    url:'/user/detail',
+    params:{
+      uid
     }
   })
 }

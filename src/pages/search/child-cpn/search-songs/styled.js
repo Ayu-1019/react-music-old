@@ -46,6 +46,12 @@ export const SearchWrap = styled.div`
         max-width: 100%;
         height: 20px;
         width: 370px;
+        span{
+          cursor: pointer;
+          &:hover{
+            text-decoration:underline;
+          }
+        }
       }
       .songs-operation{
         width:96px;

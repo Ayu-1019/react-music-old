@@ -10,6 +10,7 @@ import {
   getSearchSounddj,
   getSearchUser
 } from '@/services/search';
+import { getSearchUserPlaylistCount } from '../../../services/search';
 
 const changeSearchContent = (keywords) => ({
   type:actionTypes.CHANGE_SEARCH_CONTENT,
@@ -92,8 +93,7 @@ export const getSearchVideoAction = (keywords) => {
 export const getSearchLyricAction = (keywords) => {
   return dispatch => {
     getSearchLyric(keywords).then(res => {
-      console.log(res);
-      dispatch(changeSearchLyric());
+      dispatch(changeSearchLyric(res.result.songs));
     })
   }
 }
@@ -108,16 +108,21 @@ export const getSearchPlaylistAction = (keywords) => {
 export const getSearchSounddjAction = (keywords) => {
   return dispatch => {
     getSearchSounddj(keywords).then(res => {
-      console.log(res);
-      dispatch(changeSearchSounddj());
+      dispatch(changeSearchSounddj(res.result.djRadios));
     })
   }
 }
 export const getSearchUserAction = (keywords) => {
   return dispatch => {
     getSearchUser(keywords).then(res => {
-      console.log(res);
-      dispatch(changeSearchUser());
+      let newArray = [...res.result.userprofiles]
+      for(let item of newArray){
+        getSearchUserPlaylistCount(item.userId).then(response => {
+          item.playlistCount = response.profile.playlistCount;
+          item.followeds = response.profile.followeds;
+        })
+      }
+      dispatch(changeSearchUser(newArray));
     })
   }
 }

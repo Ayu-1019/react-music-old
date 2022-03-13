@@ -22,7 +22,6 @@ const ZXYSearchVideo = memo((props) => {
     <VideoWrap>
       {
         searchVideos.map(item => {
-
           return (
             <div className='video-item' key={item.vid}>
               <div className='item-top'>
