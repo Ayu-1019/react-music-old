@@ -22,7 +22,7 @@ const SongList = memo(() => {
       <div className='list-wrap'>
       { 
         songList.map(item => {
-          return <ZXYSongsCover key={item.id} info={item} right='30px'/>
+          return <ZXYSongsCover key={item.id} info={item} i={2} right='30px'/>
         })
       }
       </div>

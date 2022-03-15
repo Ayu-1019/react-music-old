@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 
 import { SongCategoryWrapper } from './styled';
 
-import { getCategory, getSongList } from '../../store/actionCreators';
+import { changeCurrentCategoryAction, getCategory, getSongList } from '../../store/actionCreators';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 const SongCategory = memo(() => {
@@ -19,8 +19,13 @@ const SongCategory = memo(() => {
   const handleCategoryItem = (name) => {
     console.log(name);
     dispatch(getSongList(name));
+    dispatch(changeCurrentCategoryAction(name));
   }
 
+  const chooseAll = () => {
+    dispatch(changeCurrentCategoryAction('全部'));
+    dispatch(getSongList('全部'));
+  }
 
   return (
     <SongCategoryWrapper>
@@ -28,7 +33,7 @@ const SongCategory = memo(() => {
         <i className='sprite_icon'></i>
       </div>
       <div className='list-head'>
-        <div className='list-head-all'>全部分类</div>
+        <div className='list-head-all' onClick={e => chooseAll()}>全部分类</div>
       </div>
       <div className='list-content'>
         <div className='list-content-language'>

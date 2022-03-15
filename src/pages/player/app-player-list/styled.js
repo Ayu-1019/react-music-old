@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
 export const PlaylistWrapper = styled.div`
-  /* background-color: #fff; */
   width: 986px;
-  height: 301px;
+  height: 300px;
   margin-left: -493px;
   position:fixed;
   left:50%;
-  bottom:47px;
+  bottom:46px;
   z-index:9999;
   
   .playlist-header{
     padding: 0 5px;
     background-position: 0 0;
-    height: 41px;
+    height: 40px;
     &-title{
       position: absolute;
       left: 25px;

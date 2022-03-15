@@ -18,7 +18,7 @@ const ArtistList = memo(() => {
       <ZXYArtistHeader title={currentType.name} />
       <ZXYAlphaList/>
       {
-
+        
       }
     </ArtistListWrapper>
   )

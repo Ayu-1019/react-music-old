@@ -25,7 +25,7 @@ export default memo(function ZXYHotRecommend() {
       <div className='recommend-list'>
         {
           hotRecommends.map((item,index) => {
-            return <ZXYSongsCover key={item.id} info={item}/>
+            return <ZXYSongsCover key={item.id} info={item} i={1}/>
           })
         }
       </div>

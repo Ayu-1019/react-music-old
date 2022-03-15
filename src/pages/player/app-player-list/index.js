@@ -13,8 +13,6 @@ const ZXYPlayerList = memo(() => {
     currentSong: state.getIn(["player","currentSong"]),
     playList:state.getIn(["player","playList"])
   }),shallowEqual);
-  console.log(currentSong);
-  console.log(playList);
 
   return (
     <PlaylistWrapper bgimg={currentSong.al.picUrl}>
