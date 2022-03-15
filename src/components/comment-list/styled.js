@@ -51,6 +51,7 @@ export const CommentWrapper = styled.div`
           background-position: -60px -490px;
         }
         .comment-button{
+          cursor: pointer;
           display: block;
           width: 46px;
           height: 25px;
@@ -118,9 +119,10 @@ export const CommentWrapper = styled.div`
             color:#999;
           }
           .operation{
-            a{
+            span{
               text-decoration: none;
               color: #666;
+              cursor: pointer;
               margin: 0px 10px;
               i{
                 margin-right:2px;

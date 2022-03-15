@@ -31,13 +31,13 @@ function ZXYRecommend(props) {
 
           <div className='login sprite_02'>
             <p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
-            <a href="/todo" className='sprite_02'>用户登录</a>
+            <span className='sprite_02'>用户登录</span>
           </div>
 
           <ZXYHotSinger />
 
           <div className='apply'>
-            <a href="/todo"><i>申请称为网易音乐人</i></a>
+            <span><i>申请称为网易音乐人</i></span>
           </div>
 
           <ZXYHotDj/>
@@ -49,34 +49,3 @@ function ZXYRecommend(props) {
 }
 
 export default memo(ZXYRecommend);
-
-// import React, { memo, useEffect } from 'react';
-// import { connect } from 'react-redux';
-// import { getTopBannerAction } from './sotre/actionCreators';
-
-// function ZXYRecommend(props) {
-
-//   const {getBanners,topBanners} = props;
-
-//   useEffect(() => {
-//     getBanners();
-//   },[getBanners])
-
-//   return (
-//     <div>
-//       {topBanners.length}
-//     </div>
-//   )
-// }
-
-// const mapStateToProps = state => ({
-//   topBanners:state.recommend.topBanners
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//   getBanners:() => {
-//     dispatch(getTopBannerAction())
-//   }
-// })
-
-// export default connect(mapStateToProps,mapDispatchToProps)(memo(ZXYRecommend));

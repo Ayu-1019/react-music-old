@@ -107,6 +107,9 @@ export const RankingContentWrapper = styled.div`
             .item-headline{
               flex:1;
               color:#333;
+              img{
+                cursor: pointer;
+              }
               .play{
                 margin-left:15px;
                 margin-right:8px;
@@ -133,6 +136,10 @@ export const RankingContentWrapper = styled.div`
               padding-top:15px;
               padding-left:15px;
               width:24%;
+              cursor: pointer;
+              &:hover{
+                text-decoration:underline;
+              }
             }
           }
           .content-list-list-item2{

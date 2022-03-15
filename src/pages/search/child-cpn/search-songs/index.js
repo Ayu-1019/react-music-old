@@ -43,8 +43,8 @@ const ZXYSearchSinger = memo(() => {
                     <span className='sprite_table down'></span>
                   </div>
                 </div>
-                <div className='songs-singer'><a href="/todo">{item.artists[0].name}</a></div>
-                <div className='songs-album'><a href="/todo">《{item.album.name}》</a></div>        
+                <div className='songs-singer'><span>{item.artists[0].name}</span></div>
+                <div className='songs-album'><span>《{item.album.name}》</span></div>        
                 <div className='songs-duration'>{formatDate(item.duration,'mm:ss')}</div>
               </div>
             )

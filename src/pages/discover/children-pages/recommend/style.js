@@ -29,7 +29,7 @@ export const RecommendRight = styled.div`
       padding: 16px 0;
       line-height: 22px;
     }
-    a{
+    span{
       display: block;
       margin: 0 auto;
       width: 100px;
@@ -39,6 +39,7 @@ export const RecommendRight = styled.div`
       color: #fff;
       text-shadow: 0 1px 0 #8a060b;
       background-position: 0 -195px;
+      cursor: pointer;
       &:hover{
         text-decoration: none;
       }
@@ -54,6 +55,9 @@ export const RecommendRight = styled.div`
     color: #333;
     background-color: rgb(248,248,248);
     border:2px solid rgb(205,205,205);
+    span{
+      cursor: pointer;
+    }
     a:hover{
       text-decoration:none;
     }

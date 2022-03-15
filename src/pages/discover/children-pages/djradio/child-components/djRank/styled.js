@@ -26,6 +26,11 @@ export const DjRankWrapper = styled.div`
       padding: 20px 0;
       border-bottom: 1px solid #e7e7e7;
       display:flex;
+      .item-image{
+        img{
+          cursor: pointer;
+        }
+      }
       .item-info{
         margin-left:20px;
         .item-info-name{

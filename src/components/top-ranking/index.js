@@ -22,10 +22,10 @@ export default memo(function ZXYTopRanking(props) {
       <div className='header'>
         <div className='image'>
           <img src={getSizeImage(info.coverImgUrl,)} alt="" />
-          <a href="/todo" className='image_cover'>{info.name}</a>
+          <span className='image_cover'>{info.name}</span>
         </div>
         <div className='info'>
-          <a href="/todo">{info.name}</a>
+          <span>{info.name}</span>
           <div>
             <button className="btn sprite_02 play"></button>
             <button className='btn sprite_02 favor'></button>
@@ -53,7 +53,7 @@ export default memo(function ZXYTopRanking(props) {
         }
       </div>
       <div className='footer'>
-        <a href="/todo">查看更多 &gt;</a>
+        <span>查看更多 &gt;</span>
       </div>
     </TopRankingWrapper>
   )

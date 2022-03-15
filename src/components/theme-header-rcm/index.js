@@ -19,7 +19,7 @@ const ZXYThemeHeaderRCM = memo(function (props) {
             keywords.map((item,index) => {
               return (
                 <div key={item} className='item'>
-                  <a href="todo">{item}</a>
+                  <span>{item}</span>
                   <span className='divider'>|</span>
                 </div>
               )
@@ -28,7 +28,7 @@ const ZXYThemeHeaderRCM = memo(function (props) {
         </div>
       </div>
       <div className='right'>
-        <a href="todo">更多</a>
+        <span>更多</span>
         <i className='icon sprite_02'></i>
       </div>
     </HeaderWrapper>

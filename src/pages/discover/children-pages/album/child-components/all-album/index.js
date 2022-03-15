@@ -10,7 +10,6 @@ const AllAlbums = memo(() => {
   const { allAlbums } = useSelector(state => ({
     allAlbums:state.getIn(["albums","allAlbums"])
   }),shallowEqual)
-  console.log(allAlbums);
 
   const dispatch = useDispatch();
   useEffect(() => {

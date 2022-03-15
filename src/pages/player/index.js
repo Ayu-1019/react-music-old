@@ -36,7 +36,7 @@ export default memo(function ZXYPlayer() {
               <span className='image-cover'></span>
               <div className='image-link'>
                 <i className='sprite_icon2'></i>
-                <a href="todo">生成外链播放器</a>
+                <span>生成外链播放器</span>
               </div>
             </PlayerImage>
             <PlayerInfo isSpread={isSpread}>
@@ -79,7 +79,7 @@ export default memo(function ZXYPlayer() {
 
             </PlayerInfo>
           </div>
-          <div className='commit-bug'><a href="/todo">报错</a></div>
+          <div className='commit-bug'><span>报错</span></div>
           
           <ZXYCommentList id={currentSong.id} />
         </PlayerLeft>

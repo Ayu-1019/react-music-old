@@ -52,7 +52,7 @@ const ZXYAppHeader = (props) => {
     <HeaderWrapper>
       <div className='content wrap-v1'>
         <HeaderLeft>
-          <a href="#/" className="logo sprite_01">网易云音乐</a>
+          <span className="logo sprite_01">网易云音乐</span>
           <div className='select-list'>
             {
               headerLinks.map((item,index) => {

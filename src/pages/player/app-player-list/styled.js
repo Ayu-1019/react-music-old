@@ -66,11 +66,11 @@ export const PlaylistWrapper = styled.div`
               display:block;
             }
           }
-          a, .songs-duration{
+          span, .songs-duration{
             color:#fff;
           }
         }
-        a, .songs-duration{
+        span, .songs-duration{
           color:#ccc;
         }
         .playlist-item{

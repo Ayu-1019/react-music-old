@@ -1,11 +1,26 @@
 import React, { memo } from 'react';
+import { getSizeImage } from '../../../../../../../../utils/data-format';
 
 import { ArtistItemWrap } from './styled'
 
-const ZXYArtistItem = memo(() => {
+const ZXYArtistItem = memo((props) => {
+
+  const { item, index } = props;
+
   return (
     <ArtistItemWrap>
-      ZXYArtistItem
+      {
+        index < 10 && (
+          <div key={index} className='image'>
+            <img src={getSizeImage(item.img1v1Url,130)} alt="" />
+            <span></span>
+          </div>
+        )
+      }
+      <div className='info'>
+        {item.name}
+        <span className='sprite_icon2'></span>
+      </div>
     </ArtistItemWrap>
   )
 })

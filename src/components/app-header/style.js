@@ -21,7 +21,9 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderLeft = styled.div`
   display: flex;
-
+  span{
+    cursor: pointer;
+  }
   .logo {
     display: block;
     width: 176px;

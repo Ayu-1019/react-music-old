@@ -23,7 +23,6 @@ const ZXYCommentList = memo((props) => {
     commentList: state.getIn(["comment","commentList"])
   }),shallowEqual);
   const dispatch = useDispatch();
-  console.log(hotCommentList);
 
   const onChange = (e) => {
     console.log(e.target.value);
@@ -54,7 +53,7 @@ const ZXYCommentList = memo((props) => {
           <div className='comment-opreation'>
             <i className='smile sprite_icon2'></i>
             <i className='at sprite_icon2'></i>
-            <a className='comment-button sprite_button2' href="/todo">评论</a>
+            <span className='comment-button sprite_button2'>评论</span>
           </div>
         </div>
       </div>
@@ -79,7 +78,7 @@ const ZXYCommentList = memo((props) => {
                       {item.timeStr} {formatDate(item.time,"hh:mm")}
                     </div>
                     <div className='operation'>
-                     <a href='/todo'><i className='sprite_icon3'></i> ({item.likedCount})</a>|<a href='/todo'>回复</a>
+                     <span><i className='sprite_icon3'></i> ({item.likedCount})</span>|<span>回复</span>
                     </div>
                   </div>
                 </div>
@@ -108,7 +107,7 @@ const ZXYCommentList = memo((props) => {
                       {item.timeStr} {formatDate(item.time,"hh:mm")}
                     </div>
                     <div className='operation'>
-                     <a href='/todo'><i className='sprite_icon3'></i> ({item.likedCount})</a>|<a href='/todo'>回复</a>
+                     <span><i className='sprite_icon3'></i> ({item.likedCount})</span>|<span>回复</span>
                     </div>
                   </div>
                 </div>

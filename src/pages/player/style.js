@@ -18,6 +18,9 @@ export const PlayerLeft = styled.div`
   .commit-bug{
     margin-top:48px;
     float:right;
+    span{
+      cursor: pointer;
+    }
     a{
       color:#999;
       font-size:12px;
@@ -65,6 +68,9 @@ export const PlayerImage = styled.div`
   .image-link{
     margin-top:50px;
     text-align:center;
+    span{
+      cursor: pointer;
+    }
     i{
       display: inline-block;
       width: 16px;

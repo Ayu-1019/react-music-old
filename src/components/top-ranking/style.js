@@ -13,6 +13,9 @@ export const TopRankingWrapper = styled.div`
       width: 80px;
       height: 80px;
       position: relative;
+      span{
+        cursor: pointer;
+      }
 
       img {
         width: 80px;
@@ -73,6 +76,9 @@ export const TopRankingWrapper = styled.div`
         line-height: 17px;
         display: flex;
         justify-content: space-between;
+        span{
+          cursor: pointer;
+        }
 
         .name {
           flex: 1;
@@ -123,7 +129,9 @@ export const TopRankingWrapper = styled.div`
     align-items: center;
     margin-right: 32px;
     justify-content: flex-end;
-
+    span{
+      cursor: pointer;
+    }
     a {
       color: #000;
     }

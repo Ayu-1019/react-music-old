@@ -19,6 +19,7 @@ export const NewDjWrapper = styled.div`
       img{
         width: 150px;
         height: 150px;
+        cursor: pointer;
       }
       .item-name{
         margin:10px 0 6px;

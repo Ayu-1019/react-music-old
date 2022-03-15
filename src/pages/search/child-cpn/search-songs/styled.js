@@ -103,6 +103,9 @@ export const SearchWrap = styled.div`
         margin-left:10px;
         width: 15%;
         margin-right: 12px;
+        span{
+          cursor: pointer;
+        }
       }
       .songs-album{
         width: 18%;
@@ -111,6 +114,9 @@ export const SearchWrap = styled.div`
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        span{
+          cursor: pointer;
+        }
       }
       .songs-duration{
         float:right;

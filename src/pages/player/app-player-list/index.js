@@ -17,7 +17,7 @@ const ZXYPlayerList = memo(() => {
   return (
     <PlaylistWrapper bgimg={currentSong.al.picUrl}>
       <div className='playlist-header sprite_playlist_bg'>
-        <div className='playlist-header-title'>播放列表({playList.length - 1})</div>
+        <div className='playlist-header-title'>播放列表({playList.length})</div>
       </div>
       <div className='playlist-content'>
         <img src={currentSong.al.picUrl} alt="" />
@@ -31,7 +31,7 @@ const ZXYPlayerList = memo(() => {
                       <span className='sprite_playlist'></span>
                     </div>
                     <div className='playlist-item play-name'>
-                      <a href="/todo">{item.name}</a>
+                      <span>{item.name}</span>
                     </div>
                     <div className='playlist-item songs-operation'>
                       <div className='songs-operation-wrap'>
@@ -42,7 +42,7 @@ const ZXYPlayerList = memo(() => {
                       </div>
                     </div>
                     <div className='playlist-item songs-singer'>
-                      <a href="/todo">{item.ar[0].name}</a>
+                      <span>{item.ar[0].name}</span>
                     </div>      
                     <div className='playlist-item songs-duration'>{formatDate(item.dt,'mm:ss')}</div>
                     <div className='playlist-item song-link'>

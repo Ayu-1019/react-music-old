@@ -24,6 +24,9 @@ export const HeaderWrapper = styled.div`
       display: flex;
 
       .item {
+        span{
+          cursor: pointer;
+        }
         .divider {
           margin: 0 15px;
           color: #ccc;
@@ -35,6 +38,9 @@ export const HeaderWrapper = styled.div`
   .right {
     display: flex;
     align-items: center;
+    span{
+      cursor: pointer;
+    }
     .icon {
       display: inline-block;
       width: 12px;

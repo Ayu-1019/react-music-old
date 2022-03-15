@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const PlayerBar = styled.div`
   display: flex;
   align-items: center;
+  span{
+    cursor: pointer;
+  }
 
   .play {
     display: flex;
