@@ -20,13 +20,21 @@ const ZXYSearchSongs = memo(() => {
     
   },[dispatch,searchContent])
 
-  // const highLight = (keyword) => {
-  //   searchSingers.map((value,index) => {  
-  //     var reg =new RegExp(keyword,"g");
-  //     value.name=value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
-  //   })
-  // }
-  // highLight(searchContent);
+  const highLight = (keyword) => {
+    searchSingers.forEach((value,index) => {
+      const _list = value.name.split(keyword)
+      if (_list.length !== 1) {
+        value.name= (
+          <>
+          {_list[0]}
+          <span style={{color: '#0c73c2'}}>{keyword}</span>
+          {_list[1]}
+          </>
+        )
+      }
+    })
+  }
+  highLight(searchContent);
   return (
     <SingerWrap>
       {
