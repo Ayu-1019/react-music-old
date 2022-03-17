@@ -22,6 +22,16 @@ const ZXYSearchSinger = memo(() => {
     dispatch(getSongDetailAction(item.id));
   }
 
+  const highLight = (keyword) => {
+    searchSongs.map((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.name = value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+      value.artists[0].name = value.artists[0].name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+      value.album.name = value.album.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+    })
+  }
+  highLight(searchContent);
+
   return (
     <SearchWrap>
       <div className='search-content'>
@@ -30,10 +40,10 @@ const ZXYSearchSinger = memo(() => {
             return (
               <div className='search-content-item' key={index}>
                 <div className='songs-play' onClick={ e => playMusic(item) }>
-                  <span className='sprite_table'> </span>
+                  <span className='sprite_table'></span>
                 </div>
                 <div className='songs-name'>
-                  <span>{item.name}</span>
+                  <span dangerouslySetInnerHTML={{__html:item.name}}></span>
                 </div>
                 <div className='songs-operation'>
                   <div className='songs-operation-wrap'>
@@ -43,8 +53,8 @@ const ZXYSearchSinger = memo(() => {
                     <span className='sprite_table down'></span>
                   </div>
                 </div>
-                <div className='songs-singer'><span>{item.artists[0].name}</span></div>
-                <div className='songs-album'><span>《{item.album.name}》</span></div>        
+                <div className='songs-singer'><span dangerouslySetInnerHTML={{__html:item.artists[0].name}}></span></div>
+                <div className='songs-album'>《<span dangerouslySetInnerHTML={{__html:item.album.name}}></span>》</div>        
                 <div className='songs-duration'>{formatDate(item.duration,'mm:ss')}</div>
               </div>
             )

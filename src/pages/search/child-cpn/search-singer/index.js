@@ -20,13 +20,14 @@ const ZXYSearchSongs = memo(() => {
     
   },[dispatch,searchContent])
 
-  // const highLight = (keyword) => {
-  //   searchSingers.map((value,index) => {  
-  //     var reg =new RegExp(keyword,"g");
-  //     value.name=value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
-  //   })
-  // }
-  // highLight(searchContent);
+  const highLight = (keyword) => {
+    searchSingers.map((value,index) => {  
+      var reg =new RegExp(keyword,"g");
+      value.name=value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+    })
+  }
+  highLight(searchContent);
+
   return (
     <SingerWrap>
       {
@@ -37,7 +38,7 @@ const ZXYSearchSongs = memo(() => {
                 <img src={getSizeImage(item.img1v1Url,130)} alt="" />
               </div>
               <div className='singer-item-info'>
-                <p>{item.name}</p>
+                <p dangerouslySetInnerHTML = {{__html:item.name}} ></p>
                 <span><i className='sprite_icon2'></i></span>
               </div>
             </div>
