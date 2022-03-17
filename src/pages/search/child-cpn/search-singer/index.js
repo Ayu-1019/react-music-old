@@ -12,12 +12,21 @@ const ZXYSearchSongs = memo(() => {
     searchSingers: state.getIn(["search","searchSingers"]),
     searchContent: state.getIn(["search","searchContent"])
   }),shallowEqual);
+  console.log(searchSingers);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSearchSingersAction(searchContent));
+    
   },[dispatch,searchContent])
 
+  // const highLight = (keyword) => {
+  //   searchSingers.map((value,index) => {  
+  //     var reg =new RegExp(keyword,"g");
+  //     value.name=value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+  //   })
+  // }
+  // highLight(searchContent);
   return (
     <SingerWrap>
       {
