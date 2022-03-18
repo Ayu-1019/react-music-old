@@ -18,6 +18,15 @@ const ZXYSearchVideo = memo((props) => {
     dispatch(getSearchVideoAction(searchContent))
   },[dispatch,searchContent])
 
+  const highLight = (keyword) => {
+    searchVideos.forEach((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.title = value.title.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+      value.creator[0].userName = value.creator[0].userName.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+    })
+  }
+  highLight(searchContent);
+
   return (
     <VideoWrap>
       {
@@ -34,10 +43,10 @@ const ZXYSearchVideo = memo((props) => {
               </div>
               <div className='item-title'>
                 <span className={item.type? 'false': 'mv-icon'}></span>
-                {item.title}
+                <span dangerouslySetInnerHTML={{__html:item.title}}></span>
               </div>
               <div className='item-author'>
-                {item.creator[0].userName}
+                <span dangerouslySetInnerHTML={{__html:item.creator[0].userName}}></span>
               </div>
             </div>
           )

@@ -18,6 +18,15 @@ const ZXYSearchSounddj = memo((props) => {
     dispatch(getSearchSounddjAction(searchContent))
   },[dispatch,searchContent])
 
+  const highLight = (keyword) => {
+    searchSounddjs.forEach((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.name = value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`);
+      value.dj.nickname = value.dj.nickname.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`);
+    })
+  }
+  highLight(searchContent);
+
   return (
     <SoundDjWrap>
       <div className='sounddj-title'>声音主播</div>
@@ -30,9 +39,11 @@ const ZXYSearchSounddj = memo((props) => {
                   <img src={getSizeImage(item.picUrl,150)} alt="" />
                 </div>
                 <div className='item-info'>
-                  <div className='info-name'>{item.name}</div>
+                  <div className='info-name'>
+                    <span dangerouslySetInnerHTML={{__html:item.name}}></span>
+                  </div>
                   <div className='info-author'>
-                    by <span>{item.dj.nickname}</span>
+                    by <span dangerouslySetInnerHTML={{__html:item.dj.nickname}}></span>
                     <InfoGender className='sprite_icon2' gender={item.dj.gender}></InfoGender>
                   </div>
                 </div>

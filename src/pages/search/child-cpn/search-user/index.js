@@ -18,6 +18,14 @@ const ZXYSearchUser = memo((props) => {
     dispatch(getSearchUserAction(searchContent))
   },[dispatch,searchContent])
 
+  const highLight = (keyword) => {
+    searchUsers.forEach((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.nickname = value.nickname.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`);
+    })
+  }
+  highLight(searchContent);
+
   return (
     <UserWrap>
       {
@@ -30,7 +38,7 @@ const ZXYSearchUser = memo((props) => {
               </div>
               <div className='item-info'>
                 <div className='info-name'>
-                  <span className='name'>{item.nickname}</span>
+                  <span className='name' dangerouslySetInnerHTML={{__html:item.nickname}}></span>
                   <img src={(item.avatarDetail && item.avatarDetail.identityIconUrl) || ''} alt="" />
                   <InfoIcon className='sprite_icon2' gender={item.gender}/>
                 </div>

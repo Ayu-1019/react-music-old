@@ -12,12 +12,10 @@ const ZXYSearchSongs = memo(() => {
     searchSingers: state.getIn(["search","searchSingers"]),
     searchContent: state.getIn(["search","searchContent"])
   }),shallowEqual);
-  console.log(searchSingers);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSearchSingersAction(searchContent));
-    
   },[dispatch,searchContent])
 
   const highLight = (keyword) => {
@@ -32,15 +30,16 @@ const ZXYSearchSongs = memo(() => {
   //     if (_list.length !== 1) {
   //       value.name= (
   //         <>
-  //         {_list[0]}
-  //         <span style={{color: '#0c73c2'}}>{keyword}</span>
-  //         {_list[1]}
+  //           {_list[0]}
+  //           <span style={{color: '#0c73c2'}}>{keyword}</span>
+  //           {_list[1]}
   //         </>
   //       )
   //     }
   //   })
   // }
   highLight(searchContent);
+
   return (
     <SingerWrap>
       {

@@ -18,6 +18,15 @@ const ZXYSearchPlaylist = memo((props) => {
     dispatch(getSearchPlaylistAction(searchContent))
   },[dispatch,searchContent])
 
+  const highLight = (keyword) => {
+    searchPlaylists.forEach((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.name = value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+      value.creator.nickname = value.creator.nickname.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+    })
+  }
+  highLight(searchContent);
+
   return (
     <PlaylistWrap>
       {
@@ -29,7 +38,7 @@ const ZXYSearchPlaylist = memo((props) => {
                 <img src={getSizeImage(item.coverImgUrl,50)} alt="" />  
               </div>
               <div className='item-name'>
-                {item.name}
+                <span dangerouslySetInnerHTML={{__html:item.name}}></span>
                 <div className='item-operate'>
                   <span className='add sprite_icon2'></span>
                   <span className='favor sprite_table'></span>
@@ -37,7 +46,7 @@ const ZXYSearchPlaylist = memo((props) => {
                 </div>
               </div>
               <div className='item-number'>{item.trackCount}首</div>
-              <div className='item-author'>by <span>{item.creator.nickname}</span></div>
+              <div className='item-author'>by <span dangerouslySetInnerHTML={{__html:item.creator.nickname}}></span></div>
               <div className='item-star'>收藏：{getCount(item.bookCount)}</div>
               <div className='item-playcount'>收听：{getCount(item.playCount)}</div>
             </div>

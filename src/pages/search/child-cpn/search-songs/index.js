@@ -12,6 +12,7 @@ const ZXYSearchSinger = memo(() => {
     searchSongs: state.getIn(["search","searchSongs"]),
     searchContent: state.getIn(["search","searchContent"])
   }),shallowEqual);
+  console.log(searchSongs);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,8 +24,9 @@ const ZXYSearchSinger = memo(() => {
   }
 
   const highLight = (keyword) => {
-    searchSongs.map((value,index) => {  
+    searchSongs.forEach((value,index) => {  
       var reg = new RegExp(keyword,"g");
+      console.log(value.alias);
       value.name = value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
       value.artists[0].name = value.artists[0].name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
       value.album.name = value.album.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
@@ -44,6 +46,7 @@ const ZXYSearchSinger = memo(() => {
                 </div>
                 <div className='songs-name'>
                   <span dangerouslySetInnerHTML={{__html:item.name}}></span>
+                  <span className='songs-name-tip' dangerouslySetInnerHTML={{__html:item.alias[0]}}></span>
                 </div>
                 <div className='songs-operation'>
                   <div className='songs-operation-wrap'>

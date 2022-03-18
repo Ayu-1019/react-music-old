@@ -52,6 +52,13 @@ export const SearchWrap = styled.div`
             text-decoration:underline;
           }
         }
+        .songs-name-tip{
+          color:#aeaeae;
+          margin-left:5px;
+          &:hover{
+            text-decoration:none;
+          }
+        }
       }
       .songs-operation{
         width:96px;

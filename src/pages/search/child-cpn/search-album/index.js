@@ -17,6 +17,16 @@ const ZXYSearchAblum = memo((props) => {
   useEffect(() => {
     dispatch(getSearchAlbumAction(searchContent))
   },[dispatch,searchContent])
+
+  const highLight = (keyword) => {
+    searchAlbums.forEach((value,index) => {  
+      var reg = new RegExp(keyword,"g");
+      value.name = value.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+      value.artist.name = value.artist.name.replace(reg, `<span style="color: #0c73c2;">${keyword}</span>`); 
+    })
+  }
+  highLight(searchContent);
+
   return (
     <AlbumsWrap>
       {
