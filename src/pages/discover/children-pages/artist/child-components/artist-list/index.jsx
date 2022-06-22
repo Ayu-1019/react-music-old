@@ -12,7 +12,6 @@ const ArtistList = memo(() => {
     currentType:state.getIn(['artist','currentType']),
     artistList:state.getIn(['artist','artistList'])
   }),shallowEqual)
-  console.log(artistList);
 
   return (
     <ArtistListWrapper>

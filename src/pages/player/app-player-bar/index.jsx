@@ -53,7 +53,7 @@ export default memo(function ZXYAppPlayerrBar() {
   const audioRef = useRef();
 
   useEffect(() => {
-    dispatch(getSongDetailAction(1901371647));
+    // dispatch(getSongDetailAction(1901371647));
   },[dispatch]);
   
   useEffect(() => {

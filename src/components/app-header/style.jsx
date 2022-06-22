@@ -113,6 +113,98 @@ export const HeaderRight = styled.div`
   }
 `
 
+export const Login = styled.div`
+  cursor: pointer;
+`
+export const LoginWindow = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9998;
+  width: 500px;
+  height: 280px;
+  border-radius: 4px;
+  box-shadow: 0 5px 16px rgb(0 0 0 / 80%);
+  border: none;
+  .top{
+    padding: 0 18px;
+    height: 38px;
+    line-height: 38px;
+    z-index: 10;
+    border-bottom: 1px solid #191919;
+    border-radius: 4px 4px 0 0;
+    background: #2d2d2d;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    display:flex;
+    justify-content:space-between;
+    .cancel{
+      cursor: pointer;
+    }
+  }
+  .content{
+    height:250px;
+    border: 1px solid #d8d8d8;
+    border-width: 0 1px 1px;
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+    display:flex;
+    justify-content:space-around;
+    .middle{
+      margin-top:40px;
+      width:220px;
+      input{
+        display: block;
+        padding: 0 8px;
+        width: 220px;
+        height: 30px;
+        outline: none;
+        border: 1px solid rgb(205,205,205);
+        color: #333;
+        background:none;
+      }
+      .verify{
+        display:flex;
+        justify-content:space-between;
+        margin-top:20px;
+        button{
+          background-image: linear-gradient(rgb(255,255,255), rgb(248,248,248));
+          border:1px solid rgb(205,205,205);
+          border-radius:5px;
+        }
+        .verifycode{
+          width:130px;
+        }
+      }
+      .login{
+        margin-top:20px;
+        background-color: rgb(47,127,204);
+        text-align:center;
+        width:220px;
+        height: 31px;
+        line-height: 31px;
+        border:1px solid rgb(66,141,214);
+        border-radius:5px;
+        cursor: pointer;
+      }
+    }
+  }
+  .bottom{
+    display:flex;
+    justify-content: space-between;
+    padding: 0 19px;
+    height: 48px;
+    border-top: 1px solid #c6c6c6;
+    border-radius: 0 0 4px 4px;
+    line-height: 48px;
+    background-color: #f7f7f7;
+  }
+`
+
 
 
 

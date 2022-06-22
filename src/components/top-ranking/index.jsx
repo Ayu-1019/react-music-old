@@ -10,6 +10,7 @@ export default memo(function ZXYTopRanking(props) {
 
   const { info } = props;
   const { tracks = []} = info;
+  console.log(info);
 
   const dispatch = useDispatch();
 

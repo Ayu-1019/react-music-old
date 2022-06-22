@@ -24,6 +24,7 @@ export const changeCurrentIndex = (index) => ({
 export const getTops = () => {
   return dispatch => {
     getTopList().then(res => {
+      console.log(res);
       dispatch(changeTopListAction(res));
     })
   }
@@ -32,6 +33,7 @@ export const getTops = () => {
 export const getRanking = (id) => {
   return dispatch => {
     getRankingList(id).then(res => {
+      console.log(res);
       dispatch(changePlayListAction(res));
     })
   }

@@ -26,9 +26,9 @@ export default memo(function ZXYRecommendRanking() {
       <RankingWrapper>
         <ZXYThemeHeaderRCM title='榜单'/>
         <div className='tops'>
-          <ZXYTopRanking info={originRanking}/>
+          {/* <ZXYTopRanking info={originRanking}/>
           <ZXYTopRanking info={upRanking}/>
-          <ZXYTopRanking info={newRanking}/>
+          <ZXYTopRanking info={newRanking}/> */}
         </div>
       </RankingWrapper>
     </div>

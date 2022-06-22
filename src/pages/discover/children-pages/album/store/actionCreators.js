@@ -18,6 +18,7 @@ const changeAllAlbums = (res) => ({
 export const getHotAlbumsAction = () => {
   return dispatch => {
     getHotAlbums().then(res => {
+      console.log(res);
       dispatch(changeHotAlbums(res.albums))
     })
   }
@@ -26,7 +27,8 @@ export const getHotAlbumsAction = () => {
 export const getAllAlbumsAction = () => {
   return dispatch => {
     getAllAlbums().then(res => {
-      dispatch(changeAllAlbums(res.albums))
+      console.log(res);
+      dispatch(changeAllAlbums(res.weekData))
     })
   }
 }

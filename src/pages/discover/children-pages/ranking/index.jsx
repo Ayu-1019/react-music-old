@@ -5,7 +5,6 @@ import {
   getTops
 } from "./store/actionCreators"
 
-import Ranking from '@/components/ranking'
 import ZXYRankingLeft from './child-components/ranking-left';
 import ZXYRankingRight from './child-components/ranking-right';
 import { 
@@ -26,9 +25,9 @@ export default memo(function ZXYRanking() {
       <RankingLeft>
         <ZXYRankingLeft/>
       </RankingLeft>
-      <RankingRight>
-        <ZXYRankingRight/>
-      </RankingRight>
+      {/* <RankingRight> */}
+        {/* <ZXYRankingRight/> */}
+      {/* </RankingRight> */}
     </RankingWrapper>
   )
 });

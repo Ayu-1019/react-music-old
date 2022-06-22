@@ -19,7 +19,7 @@ const changeHotRecommendAction = (res) => ({
 
 const changeNewAlbumAction = (res) => ({
   type:actionTypes.CHANGE_NEW_ALBUMS,
-  newAlbums:res.albums
+  newAlbums:res.weekData
 })
 
 const changeUpRanking = (res) => ({
@@ -66,24 +66,27 @@ export const getNewAlbumAction = (limit) => {
   }
 }
 
-export const getTopListAction = (idx) => {
+export const getTopListAction = () => {
   return dispatch => {
-    getTopList(idx).then(res => {
-      switch(idx) {
-        case 0:
-          dispatch(changeNewRanking(res));
-          break;
-        case 1:
-          dispatch(changeHotRanking(res));
-          break;
-        case 2:
-          dispatch(changeOriginRanking(res));
-          break;
-        case 3:
-          dispatch(changeUpRanking(res));
-          break;
-        default:
-      }
+    getTopList().then(res => {
+      // console.log(res);
+      // res.list.forEach(item => {
+      //   switch(item.name) {
+      //     case '新歌榜':
+      //       dispatch(changeNewRanking(res));
+      //       break;
+      //     case '热歌榜':
+      //       dispatch(changeHotRanking(res));
+      //       break;
+      //     case '原创榜':
+      //       dispatch(changeOriginRanking(res));
+      //       break;
+      //     case '飙升榜':
+      //       dispatch(changeUpRanking(res));
+      //       break;
+      //     default:
+      //   }
+      // });
     })
   }
 }
