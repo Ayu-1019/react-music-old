@@ -67,7 +67,7 @@ export const getNewAlbumAction = (limit) => {
 }
 
 export const getTopListAction = () => {
-  return dispatch => {
+  return dispatch => { 
     getTopList().then(res => {
       // console.log(res);
       // res.list.forEach(item => {
