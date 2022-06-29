@@ -20,6 +20,7 @@ import ZXYRanking from "../pages/discover/children-pages/ranking";
 import ZXYSongs from "../pages/discover/children-pages/songs";
 import ZXYDjradio from "../pages/discover/children-pages/djradio";
 import ZXYArtist from "../pages/discover/children-pages/artist";
+import ZXYArtistDetail from "../pages/discover/children-pages/artist/child-components/artist-list/child-components/artist-detail";
 import ZXYAlbum from "../pages/discover/children-pages/album";
 import ZXYPlayer from "../pages/player";
 
@@ -138,7 +139,10 @@ const routes = [
 
     ]
   },
-  
+  {
+    path:"/artistDetail",
+    component:ZXYArtistDetail
+  }
 ];
 
 export default routes;
