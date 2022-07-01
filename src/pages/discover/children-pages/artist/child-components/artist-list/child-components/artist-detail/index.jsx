@@ -17,7 +17,7 @@ const ArtistDetailList = memo(() => {
 
   return (
     <ArtistDetailWrapper>
-     {location.state.id}
+     { location.state.id }
     </ArtistDetailWrapper>
   )
 
