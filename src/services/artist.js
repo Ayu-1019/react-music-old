@@ -31,3 +31,12 @@ export function getArtistList(area, type, initial) {
     params
   })
 }
+
+export const getArtistDetail = (id) => {
+  return request({
+    url: '/artist/detail',
+    params: {
+      id
+    }
+  })
+}

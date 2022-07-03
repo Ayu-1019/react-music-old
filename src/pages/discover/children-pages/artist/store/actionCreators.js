@@ -4,6 +4,7 @@ import {
   getHotSinger,
   getArtistList
 } from '@/services/artist';
+import { getArtistDetail } from '../../../../../services/artist';
 
 const changeHotSinger = (res) => ({
   type:actionTypes.CHANGE_HOT_SINGER,
@@ -37,6 +38,14 @@ export const getArtistListAction = (area, type, alpha) => {
   return dispatch => {
     getArtistList(area, type, alpha).then(res => {
       dispatch(changeArtistList(res.artists))
+    })
+  }
+}
+
+export const getArtistDetailAction = (id) => {
+  return dispatch => {
+    getArtistDetail(id).then(res => {
+      console.log(res);
     })
   }
 }

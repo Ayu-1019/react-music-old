@@ -1,6 +1,7 @@
-import React, { memo } from 'react'
-import { shallowEqual, useSelector } from 'react-redux';
+import React, { memo, useEffect } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
+import { getArtistDetailAction } from '../../../../store/actionCreators';
 
 import { ArtistDetailWrapper } from './styled';
 
@@ -10,6 +11,12 @@ const ArtistDetailList = memo(() => {
   //   currentType:state.getIn(['artist','currentType']),
   //   artistList:state.getIn(['artist','artistList'])
   // }),shallowEqual)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getArtistDetailAction(2116));
+  }, [dispatch])
+  
 
   const location = useLocation();
   

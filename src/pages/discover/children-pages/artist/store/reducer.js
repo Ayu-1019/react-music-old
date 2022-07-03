@@ -10,7 +10,8 @@ const defaultState = Map({
     name:'推荐歌手',
     type:1
   },
-  artistList:[]
+  artistList:[],
+  artistDetail:{}
 })
 
 function reducer(state = defaultState,action) {
@@ -23,6 +24,8 @@ function reducer(state = defaultState,action) {
       return state.set("currentType",action.currentType);
     case actionTypes.CHANGE_ARTIST_LIST:
       return state.set("artistList",action.artistList);
+    case actionTypes.CHANGE_ARTIST_DETAIL:
+      return state.set("artistDetail",action.artistDetail);
     default:
       return state;
   }
