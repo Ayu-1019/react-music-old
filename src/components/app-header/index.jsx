@@ -97,6 +97,7 @@ const ZXYAppHeader = (props) => {
                      unmountOnExit={true}
                      appear>
         <LoginWindow>
+          <div className='mask'></div>
           <div className='top'>
             <span>手机号登录</span>
             <span className='cancel' onClick={e => setShow(false)}> X </span>

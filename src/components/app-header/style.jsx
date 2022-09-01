@@ -15,15 +15,17 @@ export const HeaderWrapper = styled.div`
 
   .divider {
     height: 5px;
-    background-color: #C20C0C;
+    background-color: #c20c0c;
   }
-`
+`;
 
 export const HeaderLeft = styled.div`
   display: flex;
-  span{
+
+  span {
     cursor: pointer;
   }
+
   .logo {
     display: block;
     width: 176px;
@@ -35,7 +37,7 @@ export const HeaderLeft = styled.div`
   .select-list {
     display: flex;
     line-height: 70px;
-    
+
     .select-item {
       position: relative;
       a {
@@ -46,6 +48,7 @@ export const HeaderLeft = styled.div`
 
       :last-of-type a {
         position: relative;
+
         ::after {
           position: absolute;
           content: "";
@@ -58,12 +61,13 @@ export const HeaderLeft = styled.div`
         }
       }
 
-      &:hover a, a.active {
+      &:hover a,
+      a.active {
         color: #fff;
         background: #000;
         text-decoration: none;
       }
-      
+
       .active .icon {
         position: absolute;
         display: inline-block;
@@ -76,14 +80,13 @@ export const HeaderLeft = styled.div`
       }
     }
   }
-`
+`;
 
 export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
   color: #ccc;
   font-size: 12px;
-
 
   .search {
     width: 158px;
@@ -106,105 +109,121 @@ export const HeaderRight = styled.div`
     border-radius: 16px;
     margin: 0 16px;
     background-color: transparent;
-    &:hover{
+
+    &:hover {
       border-color: #fff;
-      color:#fff;
+      color: #fff;
     }
   }
-`
+`;
 
 export const Login = styled.div`
   cursor: pointer;
-`
+`;
+
 export const LoginWindow = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 9998;
-  width: 500px;
-  height: 280px;
-  border-radius: 4px;
-  box-shadow: 0 5px 16px rgb(0 0 0 / 80%);
-  border: none;
-  .top{
-    padding: 0 18px;
-    height: 38px;
-    line-height: 38px;
-    z-index: 10;
-    border-bottom: 1px solid #191919;
-    border-radius: 4px 4px 0 0;
-    background: #2d2d2d;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    display:flex;
-    justify-content:space-between;
-    .cancel{
-      cursor: pointer;
-    }
-  }
-  .content{
-    height:250px;
-    border: 1px solid #d8d8d8;
-    border-width: 0 1px 1px;
-    border-radius: 0 0 4px 4px;
-    background: #fff;
-    display:flex;
-    justify-content:space-around;
-    .middle{
-      margin-top:40px;
-      width:220px;
-      input{
-        display: block;
-        padding: 0 8px;
-        width: 220px;
-        height: 30px;
-        outline: none;
-        border: 1px solid rgb(205,205,205);
-        color: #333;
-        background:none;
-      }
-      .verify{
-        display:flex;
-        justify-content:space-between;
-        margin-top:20px;
-        button{
-          background-image: linear-gradient(rgb(255,255,255), rgb(248,248,248));
-          border:1px solid rgb(205,205,205);
-          border-radius:5px;
-        }
-        .verifycode{
-          width:130px;
-        }
-      }
-      .login{
-        margin-top:20px;
-        background-color: rgb(47,127,204);
-        text-align:center;
-        width:220px;
-        height: 31px;
-        line-height: 31px;
-        border:1px solid rgb(66,141,214);
-        border-radius:5px;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  .wrapper {
+    border-radius: 4px;
+    box-shadow: 0 5px 16px rgb(0 0 0 / 80%);
+    border: none;
+    margin: auto;
+    width: 500px;
+    height: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+
+    .top {
+      padding: 0 18px;
+      height: 38px;
+      line-height: 38px;
+      z-index: 10;
+      border-bottom: 1px solid #191919;
+      border-radius: 4px 4px 0 0;
+      background: #2d2d2d;
+      font-weight: bold;
+      font-size: 14px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+
+      .cancel {
         cursor: pointer;
       }
     }
-  }
-  .bottom{
-    display:flex;
-    justify-content: space-between;
-    padding: 0 19px;
-    height: 48px;
-    border-top: 1px solid #c6c6c6;
-    border-radius: 0 0 4px 4px;
-    line-height: 48px;
-    background-color: #f7f7f7;
-  }
-`
 
+    .content {
+      height: 250px;
+      border: 1px solid #d8d8d8;
+      border-width: 0 1px 1px;
+      border-radius: 0 0 4px 4px;
+      background: #fff;
+      display: flex;
+      justify-content: space-around;
 
+      .middle {
+        margin-top: 40px;
+        width: 220px;
 
+        input {
+          display: block;
+          padding: 0 8px;
+          width: 220px;
+          height: 30px;
+          outline: none;
+          border: 1px solid rgb(205, 205, 205);
+          color: #333;
+          background: none;
+        }
 
+        .verify {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+
+          button {
+            background-image: linear-gradient(
+              rgb(255, 255, 255),
+              rgb(248, 248, 248)
+            );
+
+            border: 1px solid rgb(205, 205, 205);
+            border-radius: 5px;
+          }
+
+          .verifycode {
+            width: 130px;
+          }
+        }
+
+        .login {
+          margin-top: 20px;
+          background-color: rgb(47, 127, 204);
+          text-align: center;
+          width: 220px;
+          height: 31px;
+          line-height: 31px;
+          border: 1px solid rgb(66, 141, 214);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 19px;
+      height: 48px;
+      border-top: 1px solid #c6c6c6;
+      border-radius: 0 0 4px 4px;
+      line-height: 48px;
+      background-color: #f7f7f7;
+    }
+  }  
+`;
