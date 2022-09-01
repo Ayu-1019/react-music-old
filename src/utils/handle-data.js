@@ -33,3 +33,11 @@ export function generateSingerAlpha() {
 }
 
 export const singerAlphas = generateSingerAlpha();
+
+export const setToken = (name, data) => {
+  localStorage.setItem(name, JSON.stringify(data))
+}
+
+export const getToken = (name) => {
+  localStorage.getItem(name)
+}

@@ -33,6 +33,12 @@ export const FooterLeft = styled.div`
       margin-right: 15px;
     }
   }
+
+  .info {
+    a {
+      margin: 10px;
+    }
+  }
 `
 
 export const FooterRight = styled.ul`
