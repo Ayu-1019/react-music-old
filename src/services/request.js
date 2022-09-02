@@ -16,8 +16,8 @@ export default function request(option) {
 			// 1.当发送网络请求时, 在页面中添加一个loading组件, 作为动画
 
 			// 2.某些请求要求用户必须登录, 判断用户是否有token, 如果没有token跳转到login页面
-      if(getToken()) {
-        config.headers['Authorization'] = 'Bear ' + getToken()
+      if(localStorage.getItem('userToken')) {
+        config.headers['Authorization'] = 'Bear ' + localStorage.getItem('userToken');
       }
 
 			// 3.对请求的参数进行序列化(看服务器是否需要序列化)
@@ -25,6 +25,7 @@ export default function request(option) {
 			// console.log(config);
 
 			// 4.等等
+      console.log(config);
 			return config
 		}, err => {
 			// console.log('来到了request拦截failure中');

@@ -18,6 +18,7 @@ import {
   LoginWindow
 } from './style';
 import { getSearchContentAction } from '../../pages/search/store/actionCreators';
+import { setToken } from '../../utils/handle-data';
 
 const ZXYAppHeader = (props) => {
   // console.log(props);
@@ -69,6 +70,7 @@ const ZXYAppHeader = (props) => {
       console.log(res);
       setShow(false);
       setLoginText(res.profile.nickname);
+      setToken('userToken', res.token);
       localStorage.setItem('userData', JSON.stringify(res));
     }).catch(err => {
       console.log(err);
@@ -77,15 +79,15 @@ const ZXYAppHeader = (props) => {
 
   const judgeLogin = () => {
     if(loginText === '登录'){
-      if(localStorage.getItem("userData")){
-        const a = JSON.parse(localStorage.getItem("userData"));
-        setLoginText(a.nickname);
-      } else {
+      // if(localStorage.getItem("userData")){
+      //   const a = JSON.parse(localStorage.getItem("userData"));
+      //   setLoginText(a.nickname);
+      // } else {
         setShow(true);
-      }
-    } else {
-      const a = JSON.parse(localStorage.getItem("userData"));
-      console.log(a);
+    //   }
+    // } else {
+    //   const a = JSON.parse(localStorage.getItem("userData"));
+    //   console.log(a);
     }
   }
 
@@ -97,19 +99,20 @@ const ZXYAppHeader = (props) => {
                      unmountOnExit={true}
                      appear>
         <LoginWindow>
-          <div className='mask'></div>
-          <div className='top'>
-            <span>手机号登录</span>
-            <span className='cancel' onClick={e => setShow(false)}> X </span>
-          </div>
-          <div className='content'>
-            <div className='middle'>
-              <div className=''><input onChange={e => setphoneNumber(e.target.value)} type="text" name="" id="" placeholder='请输入手机号'/></div>
-              <div className='verify'>
-                <input onChange={e => setverifyCode(e.target.value)} type="text" className='verifycode' id="" placeholder='请输入验证码'/>
-                <button onClick={e => clickVerifyCode()}>获取验证码</button>
+          <div className='wrapper'>
+            <div className='top'>
+              <span>手机号登录</span>
+              <span className='cancel' onClick={e => setShow(false)}> X </span>
+            </div>
+            <div className='content'>
+              <div className='middle'>
+                <div className=''><input onChange={e => setphoneNumber(e.target.value)} type="text" name="" id="" placeholder='请输入手机号'/></div>
+                <div className='verify'>
+                  <input onChange={e => setverifyCode(e.target.value)} type="text" className='verifycode' id="" placeholder='请输入验证码'/>
+                  <button onClick={e => clickVerifyCode()}>获取验证码</button>
+                </div>
+                <div className='login' onClick={e => clickLogin()}>登录</div>
               </div>
-              <div className='login' onClick={e => clickLogin()}>登录</div>
             </div>
           </div>
         </LoginWindow>

@@ -123,20 +123,22 @@ export const Login = styled.div`
 
 export const LoginWindow = styled.div`
   background-color: rgba(0, 0, 0, 0.65);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .wrapper {
     border-radius: 4px;
     box-shadow: 0 5px 16px rgb(0 0 0 / 80%);
     border: none;
-    margin: auto;
     width: 500px;
     height: 280px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9998;
 
     .top {
       padding: 0 18px;
