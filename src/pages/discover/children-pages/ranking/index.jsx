@@ -1,33 +1,26 @@
-import React, { memo, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { memo, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
-import {
-  getTops
-} from "./store/actionCreators"
+import { getTops } from './store/actionCreators'
 
-import ZXYRankingLeft from './child-components/ranking-left';
-import ZXYRankingRight from './child-components/ranking-right';
-import { 
-  RankingWrapper,
-  RankingLeft,
-  RankingRight
-} from './style';
+import ZXYRankingLeft from './child-components/ranking-left'
+import ZXYRankingRight from './child-components/ranking-right'
+import { RankingWrapper, RankingLeft, RankingRight } from './style'
 
 export default memo(function ZXYRanking() {
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getTops());
-  }, [dispatch]);
+    dispatch(getTops())
+  }, [dispatch])
 
   return (
-    <RankingWrapper className='wrap-v2'>
+    <RankingWrapper className="wrap-v2">
       <RankingLeft>
-        <ZXYRankingLeft/>
+        <ZXYRankingLeft />
       </RankingLeft>
-      {/* <RankingRight> */}
-        {/* <ZXYRankingRight/> */}
-      {/* </RankingRight> */}
+      <RankingRight>
+        <ZXYRankingRight />
+      </RankingRight>
     </RankingWrapper>
   )
-});
+})
