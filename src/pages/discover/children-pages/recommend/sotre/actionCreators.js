@@ -69,24 +69,24 @@ export const getNewAlbumAction = limit => {
 export const getTopListAction = () => {
   return dispatch => {
     getTopList().then(res => {
-      // console.log(res);
-      res.list.forEach(item => {
-        switch (item.name) {
-          case '新歌榜':
-            dispatch(changeNewRanking(res))
-            break
-          case '热歌榜':
-            dispatch(changeHotRanking(res))
-            break
-          case '原创榜':
-            dispatch(changeOriginRanking(res))
-            break
-          case '飙升榜':
-            dispatch(changeUpRanking(res))
-            break
-          default:
-        }
-      })
+      // console.log(res)
+      // res.list.forEach(item => {
+      //   switch (item.name) {
+      //     case '新歌榜':
+      //       dispatch(changeNewRanking(res))
+      //       break
+      //     case '热歌榜':
+      //       dispatch(changeHotRanking(res))
+      //       break
+      //     case '原创榜':
+      //       dispatch(changeOriginRanking(res))
+      //       break
+      //     case '飙升榜':
+      //       dispatch(changeUpRanking(res))
+      //       break
+      //     default:
+      //   }
+      // })
     })
   }
 }

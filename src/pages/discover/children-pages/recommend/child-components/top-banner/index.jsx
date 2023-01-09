@@ -46,17 +46,18 @@ export default memo(function ZXYTopBanner() {
             ref={bannerRef}
             beforeChange={bannerChange}
           >
-            {topBanners.map((item, index) => {
-              return (
-                <div className="banner-item" key={item.imageUrl}>
-                  <img
-                    className="image"
-                    src={item.imageUrl}
-                    alt={item.typeTitle}
-                  />
-                </div>
-              )
-            })}
+            {topBanners &&
+              topBanners.map((item, index) => {
+                return (
+                  <div className="banner-item" key={item.imageUrl}>
+                    <img
+                      className="image"
+                      src={item.imageUrl}
+                      alt={item.typeTitle}
+                    />
+                  </div>
+                )
+              })}
           </Carousel>
         </BannerLeft>
 
