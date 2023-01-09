@@ -32,7 +32,7 @@ export default memo(function ZXYTopBanner() {
   }, [])
 
   const bgImage =
-    topBanners[0] &&
+    topBanners &&
     topBanners[currentIndex] &&
     topBanners[currentIndex].imageUrl + '?imageView&blur=40x20'
 
