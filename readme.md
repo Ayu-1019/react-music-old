@@ -7,7 +7,7 @@ https://github.com/Binaryify/NeteaseCloudMusicApi.git
 ###
 
 - 主要使用 react + react-hooks + redux + react-router
-- styledcomponents
+- styled-components
 - AntDesign 组件库
 - axios 的二次封装
 
