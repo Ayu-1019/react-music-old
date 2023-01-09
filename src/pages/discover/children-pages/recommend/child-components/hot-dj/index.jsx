@@ -8,26 +8,23 @@ import { getSizeImage } from '@/utils/data-format'
 import { Wrapper } from './styled'
 
 const ZXYHotDj = memo(() => {
-  const { hotDj } = useSelector(
-    state => ({
-      hotDj: state.getIn(['djradio', 'hotDj'])
-    }),
-    shallowEqual
-  )
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getHotDjAction())
-  }, [dispatch])
-
+  // const { hotDj } = useSelector(
+  //   state => ({
+  //     hotDj: state.getIn(['djradio', 'hotDj'])
+  //   }),
+  //   shallowEqual
+  // )
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(getHotDjAction())
+  // }, [dispatch])
   return (
     <Wrapper>
       <div className="title">
         <span>热门主播</span>
         <NavLink to="/discover/artist">查看全部 &gt;</NavLink>
       </div>
-      {hotDj &&
+      {/* {hotDj &&
         hotDj.slice(0, 5).map((item, index) => {
           return (
             <div key={index} className="singer">
@@ -40,7 +37,7 @@ const ZXYHotDj = memo(() => {
               </div>
             </div>
           )
-        })}
+        })} */}
     </Wrapper>
   )
 })
