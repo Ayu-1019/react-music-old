@@ -1,32 +1,32 @@
 import React, { memo } from 'react'
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux'
 
-import ZXYArtistHeader from '@/components/artist-header';
-import ZXYAlphaList from './child-components/alpha-list';
+import ZXYArtistHeader from '@/components/artist-header'
+import ZXYAlphaList from './child-components/alpha-list'
 import ZXYArtistItem from './child-components/artist-item'
-import { ArtistListWrapper } from './styled';
+import { ArtistListWrapper } from './styled'
 
 const ArtistList = memo(() => {
-
-  const { currentType,artistList } = useSelector(state => ({
-    currentType:state.getIn(['artist','currentType']),
-    artistList:state.getIn(['artist','artistList'])
-  }),shallowEqual)
+  const { currentType, artistList } = useSelector(
+    state => ({
+      currentType: state.getIn(['artist', 'currentType']),
+      artistList: state.getIn(['artist', 'artistList'])
+    }),
+    shallowEqual
+  )
 
   return (
     <ArtistListWrapper>
       <ZXYArtistHeader title={currentType.name} />
-      <ZXYAlphaList/>
-      <div className='artist-list'>
-        {
+      <ZXYAlphaList />
+      <div className="artist-list">
+        {artistList &&
           artistList.map((item, index) => {
-            return <ZXYArtistItem item={item} index={index}/>
-          })
-        }
+            return <ZXYArtistItem item={item} index={index} />
+          })}
       </div>
     </ArtistListWrapper>
   )
-
 })
 
-export default ArtistList;
+export default ArtistList
